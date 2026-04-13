@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Favaro Imobiliária | Campo Grande, MS</title>
+  <meta name="description" content="Imobiliária especializada em Campo Grande, MS. Compra, venda e locação de imóveis com consultoria personalizada. CRECI 15.240." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --verde:        #3d5a46;
+      --verde-escuro: #2a3d31;
+      --verde-medio:  #4e7057;
+      --verde-claro:  #f0f4f1;
+      --branco:       #f8f7f4;
+      --texto:        #1a2520;
+      --texto-suave:  #5a6e62;
+      --borda:        #d4ddd6;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--branco);
+      color: var(--texto);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 4rem;
+      background: var(--branco);
+      border-bottom: 1px solid var(--borda);
+      position: sticky;
+      top: 0;
+      z-index: 200;
+    }
+    .nav-logo {
+      color: var(--verde-escuro);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--texto-suave);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      font-weight: 300;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--verde-escuro); }
+    .nav-cta {
+      background: transparent;
+      border: 1px solid var(--verde);
+      color: var(--verde-escuro);
+      padding: 0.5rem 1.4rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .nav-cta:hover { background: var(--verde-claro); }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: var(--verde-escuro);
+      min-height: 90vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-esquerda {
+      padding: 6rem 3rem 6rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 2;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid #6a8a72;
+      color: #9abba1;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      padding: 0.35rem 1rem;
+      margin-bottom: 2rem;
+      width: fit-content;
+    }
+    .hero-titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.8rem;
+      font-weight: 300;
+      line-height: 1.15;
+      color: #e8e2d4;
+      margin-bottom: 1.5rem;
+    }
+    .hero-titulo em {
+      font-style: italic;
+      color: #a8c4a0;
+    }
+    .hero-subtitulo {
+      color: #8aa08e;
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 380px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primario {
+      background: #6a8a72;
+      color: #f0f4f1;
+      border: none;
+      padding: 0.9rem 2.2rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primario:hover { background: #8aa08e; }
+    .btn-secundario {
+      background: transparent;
+      color: #9abba1;
+      border: 1px solid #4a6a52;
+      padding: 0.9rem 2.2rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-secundario:hover { border-color: #8aa08e; color: #e8e2d4; }
+
+    .hero-direita {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 3rem;
+      background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=900&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    .hero-direita::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(30, 50, 36, 0.65);
+    }
+    .hero-card-flutuante {
+      position: relative;
+      z-index: 2;
+      background: rgba(20, 35, 25, 0.85);
+      border: 1px solid rgba(138,160,142,0.3);
+      padding: 2rem;
+      width: 100%;
+      backdrop-filter: blur(8px);
+    }
+    .hero-card-titulo {
+      font-family: 'Cormorant Garamond', serif;
+      color: #e8e2d4;
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 0.3rem;
+    }
+    .hero-card-sub {
+      color: #8aa08e;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.5rem;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+    }
+    .stat {
+      text-align: center;
+      padding: 1rem 0.5rem;
+      border: 1px solid rgba(138,160,142,0.2);
+    }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: #a8c4a0;
+      display: block;
+    }
+    .stat-label {
+      font-size: 0.65rem;
+      color: #6a8a72;
+      letter-spacing: 0.12em;
+      margin-top: 0.2rem;
+    }
+
+    /* ─── FILOSOFIA ─── */
+    .faixa-filosofia {
+      background: var(--verde-claro);
+      padding: 3.5rem 4rem;
+      text-align: center;
+      border-top: 1px solid var(--borda);
+      border-bottom: 1px solid var(--borda);
+    }
+    .filosofia-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--verde-escuro);
+      line-height: 1.5;
+      max-width: 700px;
+      margin: 0 auto 1rem;
+    }
+    .filosofia-autor {
+      color: var(--texto-suave);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+    }
+
+    /* ─── SERVIÇOS ─── */
+    .como-servimos {
+      padding: 5rem 4rem;
+      background: var(--branco);
+    }
+    .secao-tag {
+      color: #6a8a72;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      margin-bottom: 0.7rem;
+    }
+    .secao-titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem;
+      font-weight: 300;
+      color: var(--verde-escuro);
+      margin-bottom: 3rem;
+      line-height: 1.2;
+    }
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .servico-card {
+      padding: 2rem 1.8rem;
+      border: 1px solid var(--borda);
+      transition: all 0.3s;
+    }
+    .servico-card:hover {
+      border-color: #6a8a72;
+      transform: translateY(-4px);
+    }
+    .servico-icone {
+      width: 42px;
+      height: 42px;
+      margin-bottom: 1.2rem;
+      background: var(--verde-claro);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .servico-icone svg {
+      width: 20px;
+      height: 20px;
+      stroke: #3d5a46;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .servico-titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--verde-escuro);
+      margin-bottom: 0.7rem;
+    }
+    .servico-desc {
+      font-size: 0.85rem;
+      color: var(--texto-suave);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ─── IMÓVEIS ─── */
+    .imoveis-destaque {
+      padding: 5rem 4rem;
+      background: var(--verde-claro);
+    }
+    .imoveis-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .imovel-card {
+      background: var(--branco);
+      border: 1px solid var(--borda);
+      overflow: hidden;
+      transition: all 0.25s;
+    }
+    .imovel-card:hover {
+      border-color: #6a8a72;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(42,61,49,0.1);
+    }
+    .imovel-foto {
+      height: 210px;
+      position: relative;
+      overflow: hidden;
+    }
+    .imovel-foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .imovel-card:hover .imovel-foto img {
+      transform: scale(1.04);
+    }
+    .imovel-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: #3d5a46;
+      color: #e8e2d4;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      padding: 0.3rem 0.75rem;
+      z-index: 2;
+    }
+    .imovel-info { padding: 1.4rem; }
+    .imovel-tipo {
+      font-size: 0.68rem;
+      color: #8aa08e;
+      letter-spacing: 0.14em;
+      margin-bottom: 0.35rem;
+    }
+    .imovel-nome {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      color: var(--verde-escuro);
+      margin-bottom: 0.4rem;
+    }
+    .imovel-local {
+      font-size: 0.78rem;
+      color: var(--texto-suave);
+      margin-bottom: 1rem;
+    }
+    .imovel-rodape {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.8rem;
+      border-top: 1px solid #e8ede9;
+    }
+    .imovel-preco {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      color: var(--verde-escuro);
+    }
+    .imovel-detalhe {
+      font-size: 0.72rem;
+      color: #8aa08e;
+    }
+    .imoveis-ver-mais {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    /* ─── SOBRE ─── */
+    .sobre {
+      padding: 5rem 4rem;
+      background: var(--branco);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .sobre-imagem {
+      height: 460px;
+      overflow: hidden;
+      position: relative;
+    }
+    .sobre-imagem img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .sobre-titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--verde-escuro);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    .sobre-texto {
+      font-size: 0.9rem;
+      color: var(--texto-suave);
+      line-height: 1.85;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+    .sobre-valores {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+    .valor-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.85rem;
+      color: var(--texto-suave);
+    }
+    .valor-dot {
+      width: 6px;
+      height: 6px;
+      background: #6a8a72;
+      flex-shrink: 0;
+    }
+
+    /* ─── AVALIAÇÕES ─── */
+    .avaliacoes {
+      padding: 5rem 4rem;
+      background: var(--verde-claro);
+    }
+    .avaliacoes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .avaliacao-card {
+      background: var(--branco);
+      border: 1px solid var(--borda);
+      padding: 1.8rem;
+    }
+    .estrelas {
+      color: #6a8a72;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+    .avaliacao-texto {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--verde-escuro);
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
+    .avaliacao-autor {
+      font-size: 0.75rem;
+      color: var(--texto-suave);
+      letter-spacing: 0.1em;
+    }
+
+    /* ─── LOCALIZAÇÃO ─── */
+    .localizacao {
+      padding: 5rem 4rem;
+      background: var(--branco);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .localizacao-info { }
+    .localizacao-dado {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--borda);
+    }
+    .localizacao-dado:last-child { border-bottom: none; margin-bottom: 0; }
+    .localizacao-icone {
+      width: 36px;
+      height: 36px;
+      background: var(--verde-claro);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .localizacao-icone svg {
+      width: 16px;
+      height: 16px;
+      stroke: #3d5a46;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .localizacao-dado-titulo {
+      font-size: 0.7rem;
+      color: #8aa08e;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.2rem;
+    }
+    .localizacao-dado-valor {
+      font-size: 0.88rem;
+      color: var(--texto);
+      line-height: 1.5;
+    }
+    .mapa-container {
+      height: 380px;
+      overflow: hidden;
+      border: 1px solid var(--borda);
+    }
+    .mapa-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* ─── CTA FINAL ─── */
+    .cta-final {
+      background: var(--verde-escuro);
+      padding: 5rem 4rem;
+      text-align: center;
+    }
+    .cta-titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: #e8e2d4;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .cta-sub {
+      color: #8aa08e;
+      font-weight: 300;
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
+    }
+    .cta-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ─── RODAPÉ ─── */
+    footer {
+      background: #1a2520;
+      padding: 3.5rem 4rem 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .footer-marca {
+      color: #e8e2d4;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.8rem;
+    }
+    .footer-desc {
+      color: #4a6a52;
+      font-size: 0.78rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+    .footer-col-titulo {
+      color: #6a8a72;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      margin-bottom: 1rem;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .footer-links a {
+      color: #4a6a52;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 300;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #8aa08e; }
+    .footer-bottom {
+      border-top: 1px solid #2a3d31;
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-bottom-txt {
+      color: #2a3d31;
+      font-size: 0.72rem;
+    }
+
+    /* ─── WHATSAPP FLUTUANTE ─── */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 999;
+      width: 58px;
+      height: 58px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: all 0.25s;
+    }
+    .whatsapp-btn:hover {
+      background: #1ebe5d;
+      transform: scale(1.08);
+      box-shadow: 0 6px 28px rgba(37,211,102,0.5);
+    }
+    .whatsapp-btn svg {
+      width: 30px;
+      height: 30px;
+      fill: white;
+    }
+    .whatsapp-tooltip {
+      position: absolute;
+      right: 68px;
+      background: #1a2520;
+      color: #e8e2d4;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      padding: 0.4rem 0.8rem;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .whatsapp-btn:hover .whatsapp-tooltip { opacity: 1; }
+
+    /* ─── RESPONSIVO ─── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-direita { min-height: 300px; }
+      .hero-esquerda { padding: 4rem 1.5rem; }
+      .hero-titulo { font-size: 2.6rem; }
+      .como-servimos,
+      .imoveis-destaque,
+      .sobre,
+      .avaliacoes,
+      .localizacao,
+      .cta-final { padding: 3.5rem 1.5rem; }
+      .servicos-grid,
+      .imoveis-grid,
+      .avaliacoes-grid { grid-template-columns: 1fr; }
+      .sobre { grid-template-columns: 1fr; gap: 2rem; }
+      .sobre-imagem { height: 280px; }
+      .localizacao { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .faixa-filosofia { padding: 2.5rem 1.5rem; }
+      .filosofia-quote { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">FAVARO IMOBILIÁRIA</a>
+    <ul class="nav-links">
+      <li><a href="#imoveis">Comprar</a></li>
+      <li><a href="#imoveis">Alugar</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#sobre">Quem somos</a></li>
+    </ul>
+    <a href="https://wa.me/5567998038533" target="_blank" class="nav-cta">Falar com corretor</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-esquerda">
+      <span class="hero-tag">CAMPO GRANDE · MS</span>
+      <h1 class="hero-titulo">
+        Não vendemos imóveis.<br>
+        <em>Servimos pessoas</em><br>
+        em busca de um lar.
+      </h1>
+      <p class="hero-subtitulo">
+        Cada família tem uma história. Nossa missão é encontrar o espaço onde a sua vai continuar.
+      </p>
+      <div class="hero-btns">
+        <a href="#imoveis" class="btn-primario">VER IMÓVEIS</a>
+        <a href="https://wa.me/5567998038533" target="_blank" class="btn-secundario">ANUNCIE O SEU</a>
+      </div>
+    </div>
+    <div class="hero-direita">
+      <div class="hero-card-flutuante">
+        <p class="hero-card-titulo">Presença em Campo Grande</p>
+        <p class="hero-card-sub">CRECI 15.240</p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">325+</span>
+            <span class="stat-label">IMÓVEIS</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">5,0</span>
+            <span class="stat-label">NOTA GOOGLE</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">360°</span>
+            <span class="stat-label">TOUR VIRTUAL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILOSOFIA -->
+  <div class="faixa-filosofia">
+    <p class="filosofia-quote">"Não basta encontrar o imóvel certo — precisamos acompanhar você em cada etapa do caminho."</p>
+    <p class="filosofia-autor">— FAVARO IMOBILIÁRIA</p>
+  </div>
+
+  <!-- SERVIÇOS -->
+  <section class="como-servimos" id="servicos">
+    <p class="secao-tag">COMO SERVIMOS</p>
+    <h2 class="secao-titulo">Mais do que uma transação,<br>um compromisso.</h2>
+    <div class="servicos-grid">
+      <div class="servico-card">
+        <div class="servico-icone">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <p class="servico-titulo">Compra e venda</p>
+        <p class="servico-desc">Avaliação honesta, consultoria personalizada e acompanhamento completo até a entrega das chaves.</p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icone">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <p class="servico-titulo">Locação</p>
+        <p class="servico-desc">Administração de imóveis com responsabilidade, cuidando do seu patrimônio como se fosse nosso.</p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icone">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <p class="servico-titulo">Consultoria e financiamento</p>
+        <p class="servico-desc">Simulação de financiamento e suporte completo para você tomar a melhor decisão com tranquilidade.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMÓVEIS -->
+  <section class="imoveis-destaque" id="imoveis">
+    <p class="secao-tag">DESTAQUES</p>
+    <h2 class="secao-titulo">Imóveis selecionados<br>com cuidado.</h2>
+    <div class="imoveis-grid">
+
+      <div class="imovel-card">
+        <div class="imovel-foto">
+          <span class="imovel-badge">EXCLUSIVIDADE</span>
+          <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80" alt="Casa residencial à venda no Lar do Trabalhador" loading="lazy" />
+        </div>
+        <div class="imovel-info">
+          <p class="imovel-tipo">APARTAMENTO · VENDA</p>
+          <p class="imovel-nome">Lar do Trabalhador</p>
+          <p class="imovel-local">Campo Grande, MS · 52 m²</p>
+          <div class="imovel-rodape">
+            <span class="imovel-preco">R$ 250.000</span>
+            <span class="imovel-detalhe">3 quartos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="imovel-card">
+        <div class="imovel-foto">
+          <span class="imovel-badge">EXCLUSIVIDADE</span>
+          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Sobrado à venda no Jardim Leblon" loading="lazy" />
+        </div>
+        <div class="imovel-info">
+          <p class="imovel-tipo">SOBRADO · VENDA</p>
+          <p class="imovel-nome">Jardim Leblon</p>
+          <p class="imovel-local">Campo Grande, MS · 82 m²</p>
+          <div class="imovel-rodape">
+            <span class="imovel-preco">R$ 280.000</span>
+            <span class="imovel-detalhe">2 quartos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="imovel-card">
+        <div class="imovel-foto">
+          <span class="imovel-badge">EXCLUSIVIDADE</span>
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Casa à venda em Figueiras do Parque" loading="lazy" />
+        </div>
+        <div class="imovel-info">
+          <p class="imovel-tipo">CASA · VENDA</p>
+          <p class="imovel-nome">Figueiras do Parque</p>
+          <p class="imovel-local">Campo Grande, MS · 63 m²</p>
+          <div class="imovel-rodape">
+            <span class="imovel-preco">R$ 249.000</span>
+            <span class="imovel-detalhe">2 quartos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="imovel-card">
+        <div class="imovel-foto">
+          <span class="imovel-badge">LOCAÇÃO</span>
+          <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600&q=80" alt="Apartamento para locação no Tiradentes" loading="lazy" />
+        </div>
+        <div class="imovel-info">
+          <p class="imovel-tipo">APARTAMENTO · LOCAÇÃO</p>
+          <p class="imovel-nome">Tiradentes</p>
+          <p class="imovel-local">Campo Grande, MS · 54 m²</p>
+          <div class="imovel-rodape">
+            <span class="imovel-preco">R$ 1.130/mês</span>
+            <span class="imovel-detalhe">3 quartos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="imovel-card">
+        <div class="imovel-foto">
+          <span class="imovel-badge">EXCLUSIVIDADE</span>
+          <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?w=600&q=80" alt="Casa de condomínio à venda na Mata do Jacinto" loading="lazy" />
+        </div>
+        <div class="imovel-info">
+          <p class="imovel-tipo">CONDOMÍNIO · VENDA</p>
+          <p class="imovel-nome">Mata do Jacinto</p>
+          <p class="imovel-local">Campo Grande, MS · 61 m²</p>
+          <div class="imovel-rodape">
+            <span class="imovel-preco">R$ 260.000</span>
+            <span class="imovel-detalhe">2 quartos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="imovel-card">
+        <div class="imovel-foto">
+          <span class="imovel-badge">EXCLUSIVIDADE</span>
+          <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=600&q=80" alt="Casa de alto padrão em Itanhangá Park" loading="lazy" />
+        </div>
+        <div class="imovel-info">
+          <p class="imovel-tipo">CASA · VENDA</p>
+          <p class="imovel-nome">Itanhangá Park</p>
+          <p class="imovel-local">Campo Grande, MS · 699 m²</p>
+          <div class="imovel-rodape">
+            <span class="imovel-preco">R$ 4.800.000</span>
+            <span class="imovel-detalhe">Alto padrão</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="imoveis-ver-mais">
+      <a href="https://www.favaroimobiliaria.com.br/buscar" target="_blank" class="btn-primario">VER TODOS OS IMÓVEIS</a>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre" id="sobre">
+    <div class="sobre-imagem">
+      <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&q=80" alt="Equipe Favaro Imobiliária atendendo clientes" loading="lazy" />
+    </div>
+    <div class="sobre-conteudo">
+      <p class="secao-tag">NOSSA HISTÓRIA</p>
+      <h2 class="sobre-titulo">Especialistas em Campo Grande, movidos por propósito.</h2>
+      <p class="sobre-texto">
+        A Favaro Imobiliária nasceu da crença de que todo processo imobiliário deveria ser humano. Mais do que fechar negócios, nossa missão é servir — entender o momento de vida de cada pessoa e encontrar a solução que realmente faz sentido para ela.
+      </p>
+      <p class="sobre-texto">
+        Estamos localizados no Condomínio Evolution Business Center, na Av. Afonso Pena, no coração de Campo Grande. Uma empresa que acolhe e respeita todas as pessoas.
+      </p>
+      <div class="sobre-valores">
+        <div class="valor-item"><div class="valor-dot"></div>Transparência em cada etapa</div>
+        <div class="valor-item"><div class="valor-dot"></div>Consultoria sem pressão de venda</div>
+        <div class="valor-item"><div class="valor-dot"></div>Presença real antes, durante e depois</div>
+        <div class="valor-item"><div class="valor-dot"></div>CRECI 15.240 · Campo Grande, MS</div>
+      </div>
+      <a href="https://wa.me/5567998038533" target="_blank" class="btn-primario">FALAR COM UM CORRETOR</a>
+    </div>
+  </section>
+
+  <!-- AVALIAÇÕES -->
+  <section class="avaliacoes">
+    <p class="secao-tag">O QUE DIZEM SOBRE NÓS</p>
+    <h2 class="secao-titulo" style="margin-bottom:2.5rem;">5,0 no Google.<br>28 avaliações.</h2>
+    <div class="avaliacoes-grid">
+      <div class="avaliacao-card">
+        <div class="estrelas">★★★★★</div>
+        <p class="avaliacao-texto">"Excelente lugar para fazer negócios imobiliários, tanto para locação quanto para compra."</p>
+        <p class="avaliacao-autor">CLIENTE GOOGLE</p>
+      </div>
+      <div class="avaliacao-card">
+        <div class="estrelas">★★★★★</div>
+        <p class="avaliacao-texto">"Me apresentaram inclusive opções de compra e aluguel que eu não havia considerado. Atendimento incrível."</p>
+        <p class="avaliacao-autor">CLIENTE GOOGLE</p>
+      </div>
+      <div class="avaliacao-card">
+        <div class="estrelas">★★★★★</div>
+        <p class="avaliacao-texto">"Meu apartamento foi alugado rapidinho pela equipe. Recomendo demais a Favaro!"</p>
+        <p class="avaliacao-autor">CLIENTE GOOGLE</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCALIZAÇÃO -->
+  <section class="localizacao">
+    <div class="localizacao-info">
+      <p class="secao-tag">ONDE ESTAMOS</p>
+      <h2 class="secao-titulo" style="margin-bottom:2rem;">Venha nos visitar<br>em Campo Grande.</h2>
+
+      <div class="localizacao-dado">
+        <div class="localizacao-icone">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <p class="localizacao-dado-titulo">ENDEREÇO</p>
+          <p class="localizacao-dado-valor">Av. Afonso Pena, 5723 — 3º Andar, Sala 301<br>Santa Fé, Campo Grande — MS, 79031-010<br>Cond. Evolution Business Center</p>
+        </div>
+      </div>
+
+      <div class="localizacao-dado">
+        <div class="localizacao-icone">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div>
+          <p class="localizacao-dado-titulo">TELEFONE / WHATSAPP</p>
+          <p class="localizacao-dado-valor">(67) 99803-8533<br>(67) 99803-8511</p>
+        </div>
+      </div>
+
+      <div class="localizacao-dado">
+        <div class="localizacao-icone">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div>
+          <p class="localizacao-dado-titulo">HORÁRIO DE ATENDIMENTO</p>
+          <p class="localizacao-dado-valor">Segunda a Sexta: 8h às 18h<br>Sábado: mediante agendamento</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mapa-container">
+      <iframe
+        src="https://maps.google.com/maps?q=Favaro+Imobiliaria,+Av.+Afonso+Pena+5723,+Campo+Grande,+MS&hl=pt-BR&z=16&output=embed"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Localização da Favaro Imobiliária">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <h2 class="cta-titulo">Pronto para encontrar<br>o seu próximo lar?</h2>
+    <p class="cta-sub">Fale com um dos nossos corretores. Sem compromisso, com dedicação.</p>
+    <div class="cta-btns">
+      <a href="https://www.favaroimobiliaria.com.br/buscar" target="_blank" class="btn-primario">VER IMÓVEIS</a>
+      <a href="https://wa.me/5567998038533" target="_blank" class="btn-secundario">FALAR VIA WHATSAPP</a>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <p class="footer-marca">FAVARO IMOBILIÁRIA</p>
+        <p class="footer-desc">
+          Av. Afonso Pena, 5723 — Sala 301<br>
+          Santa Fé, Campo Grande — MS<br>
+          CRECI 15.240<br><br>
+          (67) 99803-8533 · (67) 99803-8511<br>
+          atendimento@favaroimobiliaria.com.br
+        </p>
+      </div>
+      <div>
+        <p class="footer-col-titulo">IMÓVEIS</p>
+        <ul class="footer-links">
+          <li><a href="https://www.favaroimobiliaria.com.br/buscar?availability=buy" target="_blank">Comprar</a></li>
+          <li><a href="https://www.favaroimobiliaria.com.br/buscar?availability=rent" target="_blank">Alugar</a></li>
+          <li><a href="https://www.favaroimobiliaria.com.br/buscar?availability=buy&stage=launch" target="_blank">Lançamentos</a></li>
+          <li><a href="https://www.favaroimobiliaria.com.br/buscar?feature=Tour%20Virtual" target="_blank">Tour virtual 360°</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-titulo">SERVIÇOS</p>
+        <ul class="footer-links">
+          <li><a href="https://www.favaroimobiliaria.com.br/peca-seu-imovel" target="_blank">Peça seu imóvel</a></li>
+          <li><a href="https://www.favaroimobiliaria.com.br/anuncie-seu-imovel" target="_blank">Anuncie seu imóvel</a></li>
+          <li><a href="https://wa.me/5567998038533" target="_blank">Simule um financiamento</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-titulo">EMPRESA</p>
+        <ul class="footer-links">
+          <li><a href="https://www.favaroimobiliaria.com.br/quem-somos" target="_blank">Quem somos</a></li>
+          <li><a href="https://www.favaroimobiliaria.com.br/politica-de-privacidade" target="_blank">Privacidade</a></li>
+          <li><a href="mailto:atendimento@favaroimobiliaria.com.br">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-bottom-txt">© 2025 Favaro Imobiliária LTDA · CRECI 15.240</span>
+      <span class="footer-bottom-txt">Campo Grande, MS</span>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLUTUANTE -->
+  <a href="https://wa.me/5567998038533?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informações." target="_blank" class="whatsapp-btn" aria-label="Falar no WhatsApp">
+    <span class="whatsapp-tooltip">Falar no WhatsApp</span>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+    </svg>
+  </a>
+
+</body>
+</html>
