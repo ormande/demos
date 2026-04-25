@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Era Street Store | Referência em Streetwear</title>
+    <meta name="description" content="Nova Era Street Store – Referência em Streetwear Nacional. Loja em Campo Grande, MS. Enviamos para todo o Brasil.">
+    <meta property="og:title" content="Nova Era Street Store">
+    <meta property="og:description" content="Streetwear nacional de qualidade. Campo Grande – MS.">
+    
+    <!-- Favicon Inline SVG -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230a0a0a'/><text y='65' x='18' font-family='sans-serif' font-weight='bold' font-size='50' fill='%23e8ff00'>NE</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           1. VARIÁVEIS & RESET
+           ========================================================================== */
+        :root {
+            --black: #0a0a0a;
+            --black-2: #111111;
+            --black-3: #1a1a1a;
+            --white: #f5f5f5;
+            --white-2: #a0a0a0;
+            --white-3: #555555;
+            --accent: #e8ff00;
+            --accent-dim: rgba(232,255,0,0.12);
+            --surface: #141414;
+            --border-subtle: 1px solid rgba(255, 255, 255, 0.06);
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-body: 'DM Mono', monospace;
+            --transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            font-family: var(--font-body);
+            line-height: 1.5;
+            overflow-x: hidden;
+            /* Textura de ruído de fundo (noise) */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+        }
+
+        h1, h2, h3, h4, .display-text {
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            line-height: 1.1;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Utilitários e SVGs */
+        svg {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .svg-accent { color: var(--accent); }
+        .svg-black { color: var(--black); }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 4px 12px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 24px;
+            border-radius: 2px;
+        }
+
+        /* Animações de Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 28px;
+            font-family: var(--font-body);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            border-radius: 4px;
+            min-height: 48px; /* Touch target */
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--black);
+            font-weight: 500;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(232,255,0,0.15);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border: 1px solid var(--white-3);
+        }
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* ==========================================================================
+           2. SEÇÕES DO SITE
+           ========================================================================== */
+
+        /* 1. Barra de Anúncio */
+        .announcement-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--accent);
+            color: var(--black);
+            z-index: 101;
+            overflow: hidden;
+            height: 36px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .announcement-content {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .announcement-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .announcement-item svg { width: 14px; height: 14px; }
+        .separator { opacity: 0.3; }
+
+        /* 2. Header */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(10,10,10,0.90);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: var(--border-subtle);
+            z-index: 100;
+            margin-top: 36px; /* Altura da announcement bar */
+            transition: var(--transition);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
+        .logo-title {
+            font-family: var(--font-display);
+            font-size: 32px;
+            color: var(--white);
+            line-height: 1;
+        }
+        .logo-sub {
+            font-size: 10px;
+            color: var(--accent);
+            letter-spacing: 0.2em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+        .nav-links a {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--white-2);
+            position: relative;
+        }
+        .nav-links a:hover { color: var(--white); }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after { width: 100%; }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .btn-header {
+            padding: 10px 20px;
+            font-size: 12px;
+            min-height: auto;
+        }
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        /* 3. Hero */
+        .hero {
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 60px;
+            align-items: center;
+        }
+        .hero-title {
+            font-size: clamp(48px, 6vw, 96px);
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-title span { color: var(--accent); }
+        
+        .hero-sub {
+            color: var(--white-2);
+            font-size: 16px;
+            max-width: 500px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            color: var(--white-2);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .hero-stats span {
+            color: var(--white);
+            font-weight: 500;
+        }
+        .hero-stats .divider { color: var(--white-3); }
+
+        .hero-visual {
+            position: relative;
+            aspect-ratio: 3/4;
+            border: var(--border-subtle);
+            border-radius: 4px;
+            background: var(--black-2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        /* Placeholder visual texturing */
+        .visual-placeholder {
+            background: repeating-linear-gradient(45deg, var(--black-3), var(--black-3) 10px, var(--black-2) 10px, var(--black-2) 20px);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white-3);
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .hero-visual-tag {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(4px);
+            padding: 8px 12px;
+            font-size: 10px;
+            text-transform: uppercase;
+            border: var(--border-subtle);
+        }
+
+        .watermark-98 {
+            position: absolute;
+            right: -10%;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+            font-family: var(--font-display);
+            font-size: 400px;
+            color: rgba(255,255,255,0.02);
+            z-index: 0;
+            pointer-events: none;
+            line-height: 0.8;
+        }
+
+        /* 4. Trust Bar */
+        .trust-bar {
+            background-color: var(--black-3);
+            border-top: var(--border-subtle);
+            border-bottom: var(--border-subtle);
+            padding: 24px 0;
+        }
+        .trust-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            color: var(--white-2);
+            text-transform: uppercase;
+        }
+
+        /* Seções Gerais */
+        section { padding: 100px 0; }
+        .section-header { margin-bottom: 48px; }
+        .section-title { font-size: clamp(36px, 4vw, 56px); }
+
+        /* 5. Categorias */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .category-card {
+            background-color: var(--black-3);
+            border: var(--border-subtle);
+            border-radius: 4px;
+            aspect-ratio: 4/5;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px;
+            transition: var(--transition);
+        }
+        .category-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+        .category-name {
+            font-family: var(--font-display);
+            font-size: 28px;
+            position: relative;
+            z-index: 2;
+        }
+        .category-arrow {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            opacity: 0;
+            transform: translate(-10px, 10px);
+            transition: var(--transition);
+            color: var(--accent);
+        }
+        .category-card:hover .category-arrow {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+        .cat-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0.2;
+            transition: opacity 0.3s;
+        }
+        .category-card:hover .cat-bg { opacity: 0.4; }
+        
+        /* Padrões CSS para os placeholders de categoria */
+        .bg-pattern-1 { background: radial-gradient(circle at 50% 50%, var(--white-3) 2px, transparent 2px) 0 0 / 20px 20px; }
+        .bg-pattern-2 { background: repeating-linear-gradient(45deg, transparent, transparent 10px, var(--black-2) 10px, var(--black-2) 20px); }
+        .bg-pattern-3 { background: linear-gradient(0deg, var(--black) 0%, transparent 100%); }
+        .bg-pattern-all { background: var(--accent); opacity: 0.1; }
+        
+        .card-all { border-color: var(--accent-dim); }
+        .card-all .category-name { color: var(--accent); }
+
+        /* 6. Marcas */
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+        .brand-card {
+            background-color: var(--black-3);
+            border: var(--border-subtle);
+            border-radius: 8px;
+            aspect-ratio: 2/1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 22px;
+            color: var(--white-2);
+            transition: var(--transition);
+        }
+        .brand-card:hover {
+            transform: scale(1.03);
+            border-color: var(--accent);
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        /* 7. Destaques */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .product-card {
+            background-color: var(--black-3);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+        }
+        .product-card:hover {
+            transform: translateY(-4px);
+        }
+        .product-img {
+            aspect-ratio: 3/4;
+            background-color: var(--black-2);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--accent);
+            color: var(--black);
+            font-size: 10px;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 2px;
+            text-transform: uppercase;
+        }
+        .product-info {
+            padding: 16px;
+        }
+        .product-title {
+            font-size: 14px;
+            color: var(--white-2);
+            margin-bottom: 8px;
+        }
+        .product-price {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+        .product-btn {
+            width: 100%;
+            padding: 10px;
+            background: var(--black-2);
+            border: var(--border-subtle);
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 12px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .product-card:hover .product-btn {
+            background: var(--accent);
+            color: var(--black);
+            border-color: var(--accent);
+        }
+
+        /* 8. Sobre */
+        .about { background-color: var(--surface); }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 55% 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-text p {
+            color: var(--white-2);
+            margin-bottom: 24px;
+            font-size: 16px;
+        }
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 40px;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+        }
+        .feature-item svg { width: 18px; height: 18px; color: var(--accent); }
+        
+        .about-visual {
+            aspect-ratio: 4/5;
+            background: var(--black-3);
+            border: var(--border-subtle);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .about-badge {
+            position: absolute;
+            top: 24px;
+            left: -20px;
+            background: var(--accent);
+            color: var(--black);
+            padding: 8px 16px;
+            font-size: 12px;
+            font-weight: bold;
+            transform: rotate(-90deg);
+            transform-origin: left bottom;
+        }
+
+        /* 9. Depoimentos */
+        .testim-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .testim-card {
+            background: var(--black-3);
+            border: var(--border-subtle);
+            padding: 32px;
+            border-radius: 4px;
+        }
+        .stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        .stars svg { width: 16px; height: 16px; fill: currentColor; }
+        .testim-text {
+            font-size: 15px;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        .testim-author {
+            font-size: 12px;
+            color: var(--white-2);
+        }
+        .testim-author span { color: var(--white); font-weight: bold; }
+
+        /* 10. Localização */
+        .location { background: var(--black); }
+        .loc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        .contact-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .contact-card {
+            background: var(--black-3);
+            padding: 24px;
+            border: var(--border-subtle);
+            display: flex;
+            gap: 20px;
+            border-radius: 4px;
+        }
+        .cc-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--black-2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+        .cc-info h4 {
+            font-family: var(--font-body);
+            font-size: 14px;
+            color: var(--white-2);
+            margin-bottom: 8px;
+        }
+        .cc-info p, .cc-info a {
+            font-size: 14px;
+            color: var(--white);
+        }
+        .cc-info a:hover { color: var(--accent); text-decoration: underline; }
+        .map-container {
+            border: var(--border-subtle);
+            border-radius: 4px;
+            overflow: hidden;
+            height: 100%;
+            min-height: 400px;
+            position: relative;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            /* O truque mestre para mapa escuro */
+            filter: invert(1) hue-rotate(180deg) brightness(0.85);
+        }
+
+        /* 11. CTA Final */
+        .final-cta {
+            background-color: var(--accent);
+            color: var(--black);
+            text-align: center;
+            padding: 120px 0;
+        }
+        .final-cta .section-title {
+            color: var(--black);
+            margin-bottom: 16px;
+        }
+        .final-cta p {
+            font-size: 16px;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+        .final-cta .btn-primary {
+            background: var(--black);
+            color: var(--accent);
+        }
+        .final-cta .btn-outline {
+            border-color: var(--black);
+            color: var(--black);
+        }
+        .final-cta .btn-outline:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        /* 12. Footer */
+        footer {
+            background: #050505;
+            border-top: var(--border-subtle);
+            padding: 80px 0 40px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        .footer-logo { margin-bottom: 24px; }
+        .footer-social { display: flex; gap: 16px; margin-top: 24px; }
+        .footer-social a { color: var(--white-2); }
+        .footer-social a:hover { color: var(--accent); }
+        
+        .footer-col h4 {
+            font-family: var(--font-body);
+            font-size: 14px;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a {
+            color: var(--white-2);
+            font-size: 13px;
+        }
+        .footer-links a:hover { color: var(--accent); }
+        .footer-info {
+            color: var(--white-2);
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .copyright {
+            border-top: var(--border-subtle);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--white-3);
+        }
+
+        /* 13. FAB WhatsApp */
+        .fab-wa {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 90;
+            transition: transform 0.3s;
+        }
+        .fab-wa:hover { transform: scale(1.1); }
+        .fab-wa::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 2px solid #25d366;
+            animation: pulse 2s infinite;
+            opacity: 0.5;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.3); opacity: 0; }
+        }
+
+        /* 14. Sticky Bottom Bar (Mobile) */
+        .mobile-bottom-bar {
+            display: none; /* hidden on desktop */
+        }
+
+        /* 15. WhatsApp Modal */
+        .wa-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+        .wa-modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .wa-modal {
+            width: 100%;
+            max-width: 400px;
+            height: 600px;
+            max-height: 90vh;
+            background: #0b141a; /* WA Dark */
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transform: translateY(20px);
+            transition: var(--transition);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .wa-modal-overlay.active .wa-modal { transform: translateY(0); }
+        
+        .wa-header {
+            background: #202c33;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .wa-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            color: var(--accent);
+            font-size: 20px;
+        }
+        .wa-info flex { flex-direction: column; }
+        .wa-name { font-family: var(--font-body); font-weight: bold; font-size: 15px; color: #e9edef; }
+        .wa-status { font-size: 12px; color: #8696a0; }
+        .wa-close { margin-left: auto; background: none; border: none; color: #8696a0; cursor: pointer; }
+        
+        .wa-body {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            background-color: #0b141a;
+            /* Textura sutil WA */
+            background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .wa-notice {
+            text-align: center;
+            font-size: 11px;
+            color: #8696a0;
+            background: #182229;
+            padding: 6px 12px;
+            border-radius: 8px;
+            align-self: center;
+            margin-bottom: 8px;
+        }
+        .wa-msg {
+            max-width: 85%;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.4;
+            color: #e9edef;
+            position: relative;
+        }
+        .wa-msg.received {
+            background: #202c33;
+            align-self: flex-start;
+            border-top-left-radius: 0;
+        }
+        .wa-msg.sent {
+            background: #005c4b;
+            align-self: flex-end;
+            border-top-right-radius: 0;
+        }
+        
+        .wa-suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .wa-sugg-btn {
+            background: transparent;
+            border: 1px solid #8696a0;
+            color: #00a884;
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .wa-sugg-btn:hover { background: rgba(0, 168, 132, 0.1); }
+
+        .wa-footer {
+            padding: 12px 16px;
+            background: #202c33;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .wa-input {
+            flex: 1;
+            background: #2a3942;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 24px;
+            color: #e9edef;
+            font-family: var(--font-body);
+            font-size: 14px;
+        }
+        .wa-input:focus { outline: none; }
+        .wa-send {
+            background: #00a884;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #111b21;
+            cursor: pointer;
+        }
+
+        /* Typing indicator */
+        .typing { display: flex; gap: 4px; padding: 12px 16px; }
+        .typing span {
+            width: 6px; height: 6px; background: #8696a0; border-radius: 50%;
+            animation: type 1s infinite;
+        }
+        .typing span:nth-child(2) { animation-delay: 0.2s; }
+        .typing span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes type {
+            0%, 100% { transform: translateY(0); opacity: 0.5; }
+            50% { transform: translateY(-4px); opacity: 1; }
+        }
+
+        /* Menu Mobile Fullscreen */
+        .mobile-menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: var(--black);
+            z-index: 99;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(-100%);
+            transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .mobile-menu-overlay.open {
+            transform: translateY(0);
+        }
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            text-align: center;
+        }
+        .mobile-nav-links a {
+            font-family: var(--font-display);
+            font-size: 40px;
+            color: var(--white);
+        }
+
+
+        /* ==========================================================================
+           3. RESPONSIVIDADE
+           ========================================================================== */
+
+        /* Tablet (768px - 1023px) */
+        @media (max-width: 1023px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hero-visual { display: none; } /* Simplifica ocultando a visual no tablet/mobile */
+            .categories-grid { grid-template-columns: repeat(2, 1fr); }
+            .brands-grid { grid-template-columns: repeat(3, 1fr); }
+            .highlights-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-grid, .loc-grid { grid-template-columns: 1fr; gap: 40px; }
+            .testim-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+        }
+
+        /* Mobile (Max 767px) */
+        @media (max-width: 767px) {
+            body { padding-bottom: 72px; } /* Espaço para a sticky bar */
+
+            .announcement-content {
+                justify-content: flex-start;
+                animation: marquee 15s linear infinite;
+                width: max-content;
+            }
+            @keyframes marquee {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); } /* Ajustado no JS pra duplicar o conteúdo */
+            }
+
+            .header-inner { height: 60px; }
+            .nav-links, .header-actions .btn-header { display: none; }
+            .menu-toggle { display: block; }
+            .logo { align-items: center; position: absolute; left: 50%; transform: translateX(-50%); }
+
+            .hero { padding: 40px 0; text-align: left; }
+            .hero-title { font-size: clamp(52px, 15vw, 80px); }
+            .hero-actions { flex-direction: column; }
+            .hero-actions .btn { width: 100%; }
+            .hero-stats { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .hero-stats .divider { display: none; }
+
+            .trust-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+            
+            /* Scroll Horizontal Snapping (Categorias e Destaques) */
+            .categories-grid, .highlights-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                padding-bottom: 24px;
+                margin-right: -24px; /* Ignora padding do container */
+                padding-right: 24px;
+            }
+            .categories-grid::-webkit-scrollbar, .highlights-grid::-webkit-scrollbar { display: none; }
+            
+            .category-card, .product-card {
+                scroll-snap-align: start;
+                flex: 0 0 75%; /* Mostra 1 inteiro + pedaço do próximo */
+            }
+            .category-card { aspect-ratio: 3/4; }
+
+            .brands-grid { grid-template-columns: repeat(2, 1fr); }
+            
+            .about-visual { display: none; }
+            
+            .testim-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                margin-right: -24px; padding-right: 24px;
+            }
+            .testim-card { flex: 0 0 85%; scroll-snap-align: center; }
+
+            .cta-buttons { flex-direction: column; }
+            
+            .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+            .footer-social { justify-content: center; }
+            .copyright { flex-direction: column; gap: 12px; text-align: center; }
+
+            .fab-wa { bottom: 90px; } /* Acima da sticky bar */
+
+            /* Sticky Bottom Bar */
+            .mobile-bottom-bar {
+                display: flex;
+                position: fixed;
+                bottom: 0; left: 0; right: 0;
+                background: rgba(10,10,10,0.95);
+                backdrop-filter: blur(12px);
+                border-top: var(--border-subtle);
+                z-index: 95;
+                height: 72px;
+            }
+            .mb-btn {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 4px;
+                color: var(--white);
+                font-size: 11px;
+                text-transform: uppercase;
+                border: none;
+                background: none;
+            }
+            .mb-btn svg { width: 20px; height: 20px; }
+            .mb-btn.accent { color: var(--accent); border-left: var(--border-subtle); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="announcement-content" id="announcement-track">
+            <div class="announcement-item">
+                <svg viewBox="0 0 24 24"><path d="M19 5L5 19M9 5a2 2 0 100 4 2 2 0 000-4zM15 15a2 2 0 100 4 2 2 0 000-4z"/></svg>
+                5% OFF pagando com Pix
+            </div>
+            <span class="separator">·</span>
+            <div class="announcement-item">
+                <svg viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                Enviamos para todo o Brasil
+            </div>
+            <span class="separator">·</span>
+            <div class="announcement-item">
+                <svg viewBox="0 0 24 24"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+                5,0 no Google · Nota Máxima
+            </div>
+            <!-- Duplicado via JS para o marquee infinito -->
+        </div>
+    </div>
+
+    <!-- 2. Header -->
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <span class="logo-title">NOVA ERA</span>
+                <span class="logo-sub">STREET STORE</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#categorias">Categorias</a>
+                <a href="#marcas">Marcas</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#contato">Contato</a>
+            </nav>
+            <div class="header-actions">
+                <a href="https://www.novaerastreetstore.com" target="_blank" class="btn btn-primary btn-header">Ver Catálogo</a>
+                <a href="https://www.instagram.com/nova.erastore/" target="_blank" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </a>
+                <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menu">
+                    <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Mobile Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <button class="wa-close" onclick="toggleMenu()" style="position:absolute; top:30px; right:30px;">
+            <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <div class="mobile-nav-links">
+            <a href="#categorias" onclick="toggleMenu()">Categorias</a>
+            <a href="#marcas" onclick="toggleMenu()">Marcas</a>
+            <a href="#sobre" onclick="toggleMenu()">Sobre</a>
+            <a href="#contato" onclick="toggleMenu()">Contato</a>
+            <a href="https://www.novaerastreetstore.com" style="color:var(--accent); font-size: 24px; margin-top:20px;">Acessar Catálogo</a>
+        </div>
+    </div>
+
+    <!-- 3. Hero -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content reveal">
+                <span class="eyebrow">Referência em Streetwear Nacional</span>
+                <h1 class="hero-title">
+                    A NOVA ERA<br>
+                    DO STREET<br>
+                    <span>CHEGOU.</span>
+                </h1>
+                <p class="hero-sub">Moda urbana de qualidade, marcas nacionais que definem o estilo das ruas. Loja física no centro de Campo Grande e entrega para todo o Brasil.</p>
+                
+                <div class="hero-actions">
+                    <a href="https://www.novaerastreetstore.com" target="_blank" class="btn btn-primary">
+                        Ver Catálogo Online
+                        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <button class="btn btn-outline" onclick="openWA()">
+                        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                        Falar no WhatsApp
+                    </button>
+                </div>
+
+                <div class="hero-stats">
+                    <div><span>10,7 MIL</span> seguidores no Instagram</div>
+                    <span class="divider">|</span>
+                    <div><span>5.0</span> no Google</div>
+                    <span class="divider">|</span>
+                    <div><span>+ DE 30</span> marcas disponíveis</div>
+                </div>
+            </div>
+            
+            <div class="hero-visual reveal" style="transition-delay: 0.2s;">
+                <div class="visual-placeholder">
+                    [ foto · vitrine da loja ]
+                </div>
+                <div class="hero-visual-tag">R. Pedro Celestino, 1221 - CG/MS</div>
+                <div class="watermark-98">98</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Trust Bar -->
+    <section class="trust-bar" style="padding: 24px 0;">
+        <div class="container trust-grid">
+            <div class="trust-item reveal">
+                <svg class="svg-accent" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                Marcas 100% Originais
+            </div>
+            <div class="trust-item reveal" style="transition-delay: 0.1s;">
+                <svg class="svg-accent" viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                Entrega Todo o Brasil
+            </div>
+            <div class="trust-item reveal" style="transition-delay: 0.2s;">
+                <svg class="svg-accent" viewBox="0 0 24 24"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+                5,0 no Google
+            </div>
+            <div class="trust-item reveal" style="transition-delay: 0.3s;">
+                <svg class="svg-accent" viewBox="0 0 24 24"><path d="M19 5L5 19M9 5a2 2 0 100 4 2 2 0 000-4zM15 15a2 2 0 100 4 2 2 0 000-4z"/></svg>
+                5% OFF no Pix
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Categorias -->
+    <section id="categorias">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow">O QUE VOCÊ PROCURA</span>
+                <h2 class="section-title">Navegue pelo Catálogo</h2>
+            </div>
+            
+            <div class="categories-grid">
+                <!-- Card 1 -->
+                <a href="https://www.novaerastreetstore.com/camisetas" class="category-card reveal">
+                    <div class="cat-bg bg-pattern-1"></div>
+                    <svg class="category-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <span class="category-name">Camisetas</span>
+                </a>
+                <!-- Card 2 -->
+                <a href="https://www.novaerastreetstore.com/moletom" class="category-card reveal" style="transition-delay: 0.1s;">
+                    <div class="cat-bg bg-pattern-2"></div>
+                    <svg class="category-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <span class="category-name">Moletons</span>
+                </a>
+                <!-- Card 3 -->
+                <a href="https://www.novaerastreetstore.com/calcas" class="category-card reveal" style="transition-delay: 0.2s;">
+                    <div class="cat-bg bg-pattern-3"></div>
+                    <svg class="category-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <span class="category-name">Calças</span>
+                </a>
+                <!-- Card 4 -->
+                <a href="https://www.novaerastreetstore.com/shorts-bermuda" class="category-card reveal">
+                    <div class="cat-bg bg-pattern-1"></div>
+                    <svg class="category-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <span class="category-name">Bermudas</span>
+                </a>
+                <!-- Card 5 -->
+                <a href="https://www.novaerastreetstore.com/casacos-jaquetas" class="category-card reveal" style="transition-delay: 0.1s;">
+                    <div class="cat-bg bg-pattern-2"></div>
+                    <svg class="category-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <span class="category-name">Jaquetas</span>
+                </a>
+                <!-- Card 6 -->
+                <a href="https://www.novaerastreetstore.com/tenis" class="category-card reveal" style="transition-delay: 0.2s;">
+                    <div class="cat-bg bg-pattern-3"></div>
+                    <svg class="category-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <span class="category-name">Tênis</span>
+                </a>
+                <!-- Card 7 -->
+                <a href="https://www.novaerastreetstore.com/bone" class="category-card reveal">
+                    <div class="cat-bg bg-pattern-1"></div>
+                    <svg class="category-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <span class="category-name">Bonés</span>
+                </a>
+                <!-- Card 8 -->
+                <a href="https://www.novaerastreetstore.com/acessorios" class="category-card reveal" style="transition-delay: 0.1s;">
+                    <div class="cat-bg bg-pattern-2"></div>
+                    <svg class="category-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <span class="category-name">Acessórios</span>
+                </a>
+                <!-- Card 9 - Ver Tudo -->
+                <a href="https://www.novaerastreetstore.com" class="category-card card-all reveal" style="transition-delay: 0.2s;">
+                    <div class="cat-bg bg-pattern-all"></div>
+                    <svg class="category-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <span class="category-name">Ver Catálogo Completo</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Marcas -->
+    <section id="marcas">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow">QUEM ESTÁ NA PRATELEIRA</span>
+                <h2 class="section-title">Marcas que Definem o Street</h2>
+            </div>
+            <div class="brands-grid">
+                <!-- Substituir o texto por <img src="logo.svg"> quando tiver os logos -->
+                <div class="brand-card reveal">BLUNT</div>
+                <div class="brand-card reveal" style="transition-delay: 0.1s;">EK</div>
+                <div class="brand-card reveal" style="transition-delay: 0.2s;">AUSTIN</div>
+                <div class="brand-card reveal" style="transition-delay: 0.3s;">MR. BUNNY</div>
+                <div class="brand-card reveal">TRIPSIDE</div>
+                <div class="brand-card reveal" style="transition-delay: 0.1s;">FIRE APPAREL</div>
+                <div class="brand-card reveal" style="transition-delay: 0.2s;">FATAL SURF</div>
+                <div class="brand-card reveal" style="transition-delay: 0.3s;">HOCKS</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Destaques -->
+    <section id="destaques">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow">EM ALTA AGORA</span>
+                <h2 class="section-title">Destaques da Semana</h2>
+                <p style="color: var(--white-2); margin-top: 8px;">Peças mais procuradas. Garanta antes que esgote.</p>
+            </div>
+            <div class="highlights-grid">
+                <!-- Produto 1 -->
+                <div class="product-card reveal">
+                    <div class="product-img">
+                        <span class="badge">NOVO</span>
+                        <div class="visual-placeholder">[ foto ]</div>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Camiseta Oversized · Preto</h4>
+                        <div class="product-price">R$ 89,90</div>
+                        <a href="https://www.novaerastreetstore.com" target="_blank">
+                            <button class="product-btn">Ver Produto</button>
+                        </a>
+                    </div>
+                </div>
+                <!-- Produto 2 -->
+                <div class="product-card reveal" style="transition-delay: 0.1s;">
+                    <div class="product-img">
+                        <div class="visual-placeholder">[ foto ]</div>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Calça Cargo · Khaki</h4>
+                        <div class="product-price">R$ 189,90</div>
+                        <a href="https://www.novaerastreetstore.com" target="_blank">
+                            <button class="product-btn">Ver Produto</button>
+                        </a>
+                    </div>
+                </div>
+                <!-- Produto 3 -->
+                <div class="product-card reveal" style="transition-delay: 0.2s;">
+                    <div class="product-img">
+                        <span class="badge">LIMITADO</span>
+                        <div class="visual-placeholder">[ foto ]</div>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Jaqueta Corta-Vento · Refletivo</h4>
+                        <div class="product-price">R$ 249,90</div>
+                        <a href="https://www.novaerastreetstore.com" target="_blank">
+                            <button class="product-btn">Ver Produto</button>
+                        </a>
+                    </div>
+                </div>
+                <!-- Produto 4 -->
+                <div class="product-card reveal" style="transition-delay: 0.3s;">
+                    <div class="product-img">
+                        <div class="visual-placeholder">[ foto ]</div>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Tênis Skate · Branco/Preto</h4>
+                        <div class="product-price">R$ 299,90</div>
+                        <a href="https://www.novaerastreetstore.com" target="_blank">
+                            <button class="product-btn">Ver Produto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Sobre -->
+    <section id="sobre" class="about">
+        <div class="container about-grid">
+            <div class="about-text reveal">
+                <span class="eyebrow">NOSSA HISTÓRIA</span>
+                <h2 class="section-title" style="margin-bottom: 24px;">Uma Referência Construída nas Ruas de Campo Grande.</h2>
+                <p>A Nova Era Street Store nasceu com um propósito claro: trazer o melhor do streetwear nacional para o Centro-Oeste. O que começou como uma loja de bairro se tornou referência obrigatória para quem vive a cultura de rua em Campo Grande e arredores.</p>
+                <p>Hoje, com mais de 30 marcas em catálogo e entrega para todo o Brasil, a Nova Era prova que estilo urbano de qualidade não precisa de endereço fixo — mas quem visita a loja física na Rua Pedro Celestino sabe que a experiência presencial é inigualável.</p>
+                
+                <div class="about-features">
+                    <div class="feature-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Mais de 30 marcas nacionais</div>
+                    <div class="feature-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Loja física no centro de CG</div>
+                    <div class="feature-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Atendimento via WhatsApp</div>
+                    <div class="feature-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Envio para todo o Brasil</div>
+                    <div class="feature-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>5% OFF pagando com Pix</div>
+                    <div class="feature-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>5,0 no Google</div>
+                </div>
+            </div>
+            <div class="about-visual reveal" style="transition-delay: 0.2s;">
+                <div class="about-badge">CAMPO GRANDE · MS</div>
+                <div class="visual-placeholder">[ foto · interno da loja ]</div>
+                <div class="watermark-98" style="font-size: 200px; right: 0;">10K+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Depoimentos -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow">CLIENTES QUE APROVAM</span>
+                <h2 class="section-title">Nota 5 no Google. Confira.</h2>
+            </div>
+            <div class="testim-grid">
+                <div class="testim-card reveal">
+                    <div class="stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="testim-text">"A melhor e mais completa loja de roupas masculina de Campo Grande. Qualidade e variedade que nenhuma outra tem."</p>
+                    <div class="testim-author"><span>Cliente</span> · via Google</div>
+                </div>
+                <div class="testim-card reveal" style="transition-delay: 0.1s;">
+                    <div class="stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="testim-text">"Loja de qualidade com bastante variedade. Encontrei tudo que precisava em um só lugar. Recomendo demais."</p>
+                    <div class="testim-author"><span>Cliente</span> · via Google</div>
+                </div>
+                <div class="testim-card reveal" style="transition-delay: 0.2s;">
+                    <div class="stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="testim-text">"Comprei online, chegou rápido e bem embalado. A qualidade das peças superou as expectativas. Voltarei com certeza."</p>
+                    <div class="testim-author"><span>Cliente</span> · via Google</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Localização -->
+    <section id="contato" class="location">
+        <div class="container loc-grid">
+            <div class="loc-info reveal">
+                <span class="eyebrow">ONDE ESTAMOS</span>
+                <h2 class="section-title" style="margin-bottom: 32px;">Venha nos visitar ou entre em contato.</h2>
+                
+                <div class="contact-cards">
+                    <!-- Endereço -->
+                    <div class="contact-card">
+                        <div class="cc-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                        <div class="cc-info">
+                            <h4>Loja Física</h4>
+                            <p>Rua Pedro Celestino, 1221 · Centro<br>Campo Grande – MS · CEP 79002-372</p>
+                        </div>
+                    </div>
+                    <!-- WhatsApp -->
+                    <div class="contact-card" onclick="openWA()" style="cursor: pointer;">
+                        <div class="cc-icon"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+                        <div class="cc-info">
+                            <h4>WhatsApp & Atendimento</h4>
+                            <a href="#">(67) 99260-4339 · Atendimento Seg a Sáb</a>
+                        </div>
+                    </div>
+                    <!-- Horário -->
+                    <div class="contact-card">
+                        <div class="cc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+                        <div class="cc-info">
+                            <h4>Horário de Funcionamento</h4>
+                            <p>Seg – Sex: 09:00 – 19:00<br>Sábado: 09:00 – 17:00<br>Domingo: Fechado</p>
+                        </div>
+                    </div>
+                    <!-- Instagram -->
+                    <div class="contact-card">
+                        <div class="cc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+                        <div class="cc-info">
+                            <h4>Instagram</h4>
+                            <a href="https://www.instagram.com/nova.erastore/" target="_blank">@nova.erastore · 10,7 mil seguidores</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="loc-map reveal" style="transition-delay: 0.2s;">
+                <div class="map-container">
+                    <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-54.640%2C-20.474%2C-54.600%2C-20.454&layer=mapnik&marker=-20.464%2C-54.620" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. CTA Final -->
+    <section class="final-cta">
+        <div class="container reveal">
+            <h2 class="section-title">PRONTO PARA RENOVAR O GUARDA-ROUPA?</h2>
+            <p>Acesse o catálogo online ou mande mensagem agora. Enviamos para todo o Brasil.</p>
+            <div class="cta-buttons">
+                <a href="https://www.novaerastreetstore.com" target="_blank" class="btn btn-primary">
+                    Acessar Catálogo Completo
+                </a>
+                <button class="btn btn-outline" onclick="openWA()">
+                    <svg viewBox="0 0 24 24" style="stroke: currentColor;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    Chamar no WhatsApp
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-logo-col">
+                    <div class="logo footer-logo">
+                        <span class="logo-title">NOVA ERA</span>
+                        <span class="logo-sub">STREET STORE</span>
+                    </div>
+                    <p style="color: var(--white-2); font-size: 13px; max-width: 250px;">Referência no Streetwear Nacional. Moda urbana autêntica de Campo Grande para o Brasil.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/nova.erastore/" target="_blank"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        <a href="#" onclick="openWA(event)"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Categorias</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.novaerastreetstore.com/camisetas" target="_blank">Camisetas</a></li>
+                        <li><a href="https://www.novaerastreetstore.com/moletom" target="_blank">Moletons</a></li>
+                        <li><a href="https://www.novaerastreetstore.com/calcas" target="_blank">Calças</a></li>
+                        <li><a href="https://www.novaerastreetstore.com/shorts-bermuda" target="_blank">Bermudas</a></li>
+                        <li><a href="https://www.novaerastreetstore.com/tenis" target="_blank">Tênis</a></li>
+                        <li><a href="https://www.novaerastreetstore.com" target="_blank" style="color: var(--accent);">Ver Tudo →</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Informações</h4>
+                    <div class="footer-info">Rua Pedro Celestino, 1221</div>
+                    <div class="footer-info">Centro – Campo Grande/MS</div>
+                    <div class="footer-info">CEP 79002-372</div>
+                    <div class="footer-info" style="margin-top: 16px;">(67) 99260-4339</div>
+                    <div class="footer-info">novaerastreetstore.com</div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Atendimento</h4>
+                    <div class="footer-info">Seg–Sex: 09h às 19h</div>
+                    <div class="footer-info">Sábado: 09h às 17h</div>
+                    <div class="footer-info">Domingo: Fechado</div>
+                    <button class="btn btn-outline" style="padding: 8px 16px; margin-top: 16px; font-size: 12px; min-height: auto;" onclick="openWA()">Falar no WhatsApp</button>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <div>© 2026 Nova Era Street Store · Campo Grande · MS</div>
+                <div>CNPJ 00.000.000/0000-00 · Site Institucional</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 13. FAB WhatsApp -->
+    <button class="fab-wa" onclick="openWA()" aria-label="Abrir WhatsApp">
+        <svg viewBox="0 0 24 24" width="32" height="32" stroke="white" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    </button>
+
+    <!-- 14. Sticky Bottom Bar (Mobile) -->
+    <div class="mobile-bottom-bar">
+        <a href="https://www.novaerastreetstore.com" target="_blank" class="mb-btn" style="text-decoration: none;">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Ver Catálogo
+        </a>
+        <button class="mb-btn accent" onclick="openWA()">
+            <svg viewBox="0 0 24 24" style="stroke: var(--accent);"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            WhatsApp
+        </button>
+    </div>
+
+    <!-- 15. Modal WhatsApp Simulado -->
+    <div class="wa-modal-overlay" id="waOverlay">
+        <div class="wa-modal">
+            <div class="wa-header">
+                <div class="wa-avatar">NE</div>
+                <div class="wa-info flex">
+                    <span class="wa-name">Nova Era Street Store</span>
+                    <span class="wa-status" id="waStatus">online</span>
+                </div>
+                <button class="wa-close" onclick="closeWA()">
+                    <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+            
+            <div class="wa-body" id="waBody">
+                <div class="wa-notice">— demonstração de atendimento —</div>
+                <!-- Mensagem Inicial (Inserida via JS) -->
+            </div>
+            
+            <div class="wa-footer">
+                <input type="text" class="wa-input" id="waInput" placeholder="Mensagem..." onkeypress="handleKeyPress(event)">
+                <button class="wa-send" onclick="sendMsg()">
+                    <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; margin-left: 2px;"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        // 1. Marquee Hack para Mobile (Duplica conteúdo pra rolar suave)
+        const track = document.getElementById('announcement-track');
+        if (window.innerWidth < 768) {
+            track.innerHTML += track.innerHTML; // duplica pra animar infinito
+        }
+
+        // 2. Menu Mobile
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('open');
+            document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+        }
+
+        // 3. Scroll Reveal (Intersection Observer)
+        const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Anima só uma vez
+                }
+            });
+        }, revealOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // 4. WhatsApp Chat Simulado
+        const overlay = document.getElementById('waOverlay');
+        const waBody = document.getElementById('waBody');
+        const waInput = document.getElementById('waInput');
+        const waStatus = document.getElementById('waStatus');
+        
+        let chatInitialized = false;
+
+        const autoResponses = {
+            catalogo: [
+                "Acesse nosso catálogo completo em novaerastreetstore.com",
+                "Temos mais de 30 marcas disponíveis. Procura alguma em especial?"
+            ],
+            entrega: [
+                "Enviamos para todo o Brasil pelos Correios e transportadoras.",
+                "O prazo médio é de 5 a 10 dias úteis dependendo da sua região. Qual o seu CEP?"
+            ],
+            preco: [
+                "Para consultar preços e estoque, o melhor é acessar o site ou me enviar o nome da peça.",
+                "Você também pode vir pessoalmente à nossa loja: Rua Pedro Celestino, 1221 – Centro – Campo Grande."
+            ],
+            endereco: [
+                "Estamos na Rua Pedro Celestino, 1221 – Centro – Campo Grande – MS.",
+                "Seg a Sex das 09h às 19h, Sábado das 09h às 17h. Fica fácil de encontrar no centro da cidade."
+            ],
+            default: [
+                "Entendido! Um atendente real vai te responder em breve.",
+                "Enquanto isso, que tal dar uma olhada no nosso catálogo em novaerastreetstore.com?"
+            ]
+        };
+
+        function openWA(e) {
+            if(e) e.preventDefault();
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            if(!chatInitialized) {
+                setTimeout(() => {
+                    appendMessage("Oi! Sou a Nova Era Street Store. Como posso te ajudar hoje?", 'received');
+                    showSuggestions();
+                }, 500);
+                chatInitialized = true;
+            }
+        }
+
+        function closeWA() {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Fecha se clicar fora do modal
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) closeWA();
+        });
+
+        // Suporte a ESC para fechar modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && overlay.classList.contains('active')) closeWA();
+        });
+
+        function appendMessage(text, type) {
+            const div = document.createElement('div');
+            div.className = `wa-msg ${type}`;
+            div.textContent = text;
+            waBody.appendChild(div);
+            scrollToBottom();
+        }
+
+        function showSuggestions() {
+            const div = document.createElement('div');
+            div.className = 'wa-suggestions';
+            div.id = 'waSuggestions';
+            
+            const btns = [
+                { text: "Quero ver o catálogo", key: "catalogo" },
+                { text: "Dúvida sobre entrega", key: "entrega" },
+                { text: "Preço de uma peça", key: "preco" },
+                { text: "Como chego na loja?", key: "endereco" }
+            ];
+
+            btns.forEach(btn => {
+                const button = document.createElement('button');
+                button.className = 'wa-sugg-btn';
+                button.textContent = btn.text;
+                button.onclick = () => {
+                    sendMsg(btn.text, btn.key);
+                    div.remove(); // Remove sugestões após clique
+                };
+                div.appendChild(button);
+            });
+            
+            waBody.appendChild(div);
+            scrollToBottom();
+        }
+
+        function showTyping() {
+            const div = document.createElement('div');
+            div.className = 'wa-msg received typing';
+            div.id = 'typingIndicator';
+            div.innerHTML = '<span></span><span></span><span></span>';
+            waBody.appendChild(div);
+            waStatus.textContent = 'digitando...';
+            scrollToBottom();
+            return div;
+        }
+
+        function scrollToBottom() {
+            waBody.scrollTop = waBody.scrollHeight;
+        }
+
+        function normalizeStr(str) {
+            return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+        }
+
+        function sendMsg(text = null, forcedKey = null) {
+            const msg = text || waInput.value.trim();
+            if (!msg) return;
+
+            appendMessage(msg, 'sent');
+            if(!text) waInput.value = '';
+            
+            // Remove sugestões se ainda existirem
+            const suggs = document.getElementById('waSuggestions');
+            if(suggs) suggs.remove();
+
+            const typing = showTyping();
+
+            setTimeout(() => {
+                typing.remove();
+                waStatus.textContent = 'online';
+
+                let key = 'default';
+                if (forcedKey) {
+                    key = forcedKey;
+                } else {
+                    const normMsg = normalizeStr(msg);
+                    if(normMsg.includes('catalogo') || normMsg.includes('site') || normMsg.includes('roupa')) key = 'catalogo';
+                    else if(normMsg.includes('entrega') || normMsg.includes('frete') || normMsg.includes('prazo')) key = 'entrega';
+                    else if(normMsg.includes('preco') || normMsg.includes('valor') || normMsg.includes('custa')) key = 'preco';
+                    else if(normMsg.includes('endereco') || normMsg.includes('onde') || normMsg.includes('chegar')) key = 'endereco';
+                }
+
+                const responses = autoResponses[key];
+                appendMessage(responses[0], 'received');
+                
+                if(responses[1]) {
+                    const type2 = showTyping();
+                    setTimeout(() => {
+                        type2.remove();
+                        waStatus.textContent = 'online';
+                        appendMessage(responses[1], 'received');
+                    }, 1500);
+                }
+
+            }, 1000 + Math.random() * 1000);
+        }
+
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') sendMsg();
+        }
+    </script>
+</body>
+</html>
