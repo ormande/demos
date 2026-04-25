@@ -1,0 +1,936 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Borracharia Nossa Senhora Aparecida</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Ccircle cx='22' cy='22' r='20' fill='%230d1b2a'/%3E%3Ccircle cx='22' cy='22' r='14' fill='none' stroke='%23c9a84c' stroke-width='2'/%3E%3Ccircle cx='22' cy='22' r='5' fill='%23c9a84c'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --navy-2: #132133;
+    --navy-3: #1a2d42;
+    --gold: #c9a84c;
+    --gold-light: #e8c96a;
+    --gold-dark: #a07c2e;
+    --surface-1: #ffffff;
+    --surface-2: #f4f6f9;
+    --surface-3: #e8ecf2;
+    --text-1: #0d1b2a;
+    --text-2: #4a5568;
+    --text-3: #7f8a99;
+    --border: rgba(13, 27, 42, 0.12);
+    --success: #22c55e;
+    --shadow-card: 0 18px 45px -28px rgba(13, 27, 42, 0.45);
+    --shadow-lg: 0 30px 80px -40px rgba(13, 27, 42, 0.55);
+    --radius: 1rem;
+    --radius-lg: 1.5rem;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+    color: var(--text-1);
+    background: var(--surface-2);
+    background-image:
+      radial-gradient(circle at top, rgba(201, 168, 76, 0.10), transparent 30%);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3, h4 { font-family: "DM Sans", sans-serif; font-weight: 700; letter-spacing: -0.02em; margin: 0; }
+
+  /* ----- header ----- */
+  .header {
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(244, 246, 249, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .header-inner {
+    max-width: 1200px; margin: 0 auto; padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-logo {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: var(--navy); display: grid; place-items: center;
+    overflow: hidden; flex-shrink: 0;
+  }
+  .brand-logo img { width: 100%; height: 100%; object-fit: cover; }
+  .brand-name { font-weight: 700; font-size: 15px; line-height: 1.15; }
+  .brand-name small { display: block; color: var(--text-2); font-weight: 500; font-size: 12px; }
+  .nav { display: flex; gap: 28px; align-items: center; }
+  .nav a { color: var(--text-2); font-weight: 500; font-size: 14px; transition: color 0.15s; }
+  .nav a:hover { color: var(--navy); }
+  .nav-cta {
+    background: var(--navy); color: #fff8e1;
+    padding: 10px 18px; border-radius: 999px;
+    font-weight: 600; font-size: 14px;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: transform 0.15s, background 0.15s;
+  }
+  .nav-cta:hover { background: #1a2d42; transform: translateY(-1px); }
+  @media (max-width: 760px) {
+    .nav { display: none; }
+    .nav-cta { display: inline-flex; }
+  }
+
+  /* ----- hero ----- */
+  .hero {
+    background: var(--navy);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(201, 168, 76, 0.08) 1px, transparent 0),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.03), transparent 40%);
+    background-size: 24px 24px, auto;
+    color: #f0f4f8;
+    overflow: hidden;
+    position: relative;
+  }
+  .hero-inner {
+    max-width: 1200px; margin: 0 auto; padding: 80px 24px 100px;
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center;
+  }
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; padding: 56px 24px 72px; gap: 40px; }
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--gold-light);
+    font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero-eyebrow::before {
+    content: ""; width: 24px; height: 1px; background: var(--gold);
+  }
+  .hero h1 {
+    font-size: clamp(36px, 5.2vw, 60px);
+    line-height: 1.05;
+    margin-bottom: 20px;
+  }
+  .hero h1 .accent { color: var(--gold-light); }
+  .hero p.lead {
+    font-size: 18px; color: #c4cfdc; max-width: 520px;
+    margin-bottom: 32px;
+  }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 22px; border-radius: 999px;
+    font-weight: 600; font-size: 15px;
+    border: 0; cursor: pointer;
+    transition: transform 0.15s, background 0.15s, box-shadow 0.15s;
+    font-family: inherit;
+  }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+    box-shadow: 0 12px 32px -16px rgba(201, 168, 76, 0.6);
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-ghost {
+    background: rgba(255, 255, 255, 0.06); color: #f0f4f8;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .btn-ghost:hover { background: rgba(255, 255, 255, 0.1); }
+
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 12px; margin-top: 48px; padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    max-width: 520px;
+  }
+  .hero-stats div strong {
+    display: block; font-size: 28px; color: var(--gold-light); font-weight: 700;
+  }
+  .hero-stats div span { font-size: 13px; color: #a0aec0; }
+
+  /* hero card */
+  .hero-card-wrap { position: relative; }
+  .hero-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    background: var(--navy-3);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+  }
+  .hero-card img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .hero-card.placeholder, .about-img.placeholder, .gallery .placeholder {
+    background:
+      repeating-linear-gradient(135deg, #1a2d42 0 18px, #132133 18px 36px);
+    position: relative;
+  }
+  .hero-card.placeholder::after, .about-img.placeholder::after, .gallery .placeholder::after {
+    content: attr(data-label);
+    position: absolute; inset: 0;
+    display: grid; place-items: center;
+    color: rgba(232, 201, 106, 0.85);
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 13px; letter-spacing: 0.06em;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  }
+  .gallery .placeholder.light {
+    background:
+      repeating-linear-gradient(135deg, #e8ecf2 0 14px, #dde3ec 14px 28px);
+  }
+  .gallery .placeholder.light::after { color: #7f8a99; text-shadow: none; }
+  .hero-card-tag {
+    position: absolute; left: 20px; bottom: 20px;
+    background: rgba(13, 27, 42, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(201, 168, 76, 0.25);
+    padding: 14px 18px; border-radius: var(--radius);
+    color: #f0f4f8; max-width: 240px;
+  }
+  .hero-card-tag strong { display: block; color: var(--gold-light); font-size: 13px; margin-bottom: 4px; }
+  .hero-card-tag span { font-size: 13px; color: #c4cfdc; }
+  .hero-floater {
+    position: absolute; right: -16px; top: 32px;
+    background: var(--surface-1); color: var(--text-1);
+    padding: 14px 16px; border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-floater .dot {
+    width: 10px; height: 10px; border-radius: 999px; background: var(--success);
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18);
+  }
+  .hero-floater small { display: block; color: var(--text-2); font-size: 11px; }
+  .hero-floater strong { font-size: 14px; }
+  @media (max-width: 900px) {
+    .hero-floater { right: 12px; }
+  }
+
+  /* ----- section ----- */
+  section { scroll-margin-top: 80px; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 96px 0; }
+  @media (max-width: 760px) { .section { padding: 64px 0; } }
+  .section-head { max-width: 720px; margin-bottom: 48px; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--gold-dark); font-weight: 600; font-size: 12px;
+    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;
+  }
+  .eyebrow::before { content: ""; width: 24px; height: 1px; background: var(--gold-dark); }
+  .section-head h2 {
+    font-size: clamp(28px, 3.6vw, 42px); line-height: 1.1;
+  }
+  .section-head p {
+    margin-top: 16px; font-size: 17px; color: var(--text-2); max-width: 600px;
+  }
+
+  /* ----- serviços ----- */
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  @media (max-width: 900px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .services-grid { grid-template-columns: 1fr; } }
+  .svc-card {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .svc-card:hover { transform: translateY(-4px); border-color: rgba(201, 168, 76, 0.4); }
+  .svc-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: rgba(201, 168, 76, 0.12);
+    color: var(--gold-dark);
+    display: grid; place-items: center;
+    margin-bottom: 20px;
+  }
+  .svc-icon svg { width: 26px; height: 26px; }
+  .svc-card h3 { font-size: 19px; margin-bottom: 8px; }
+  .svc-card p { color: var(--text-2); font-size: 14px; margin: 0; }
+  .svc-card .price {
+    margin-top: 16px; padding-top: 16px;
+    border-top: 1px dashed var(--border);
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 13px; color: var(--text-3);
+  }
+  .svc-card .price strong { color: var(--navy); font-size: 16px; }
+
+  /* ----- about ----- */
+  .about {
+    background: var(--surface-1);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+  }
+  @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } }
+  .about-img {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    box-shadow: var(--shadow-card);
+    position: relative;
+  }
+  .about-img img { width: 100%; height: 100%; object-fit: cover; }
+  .about-badge {
+    position: absolute; left: 20px; top: 20px;
+    background: var(--navy); color: var(--gold-light);
+    padding: 8px 14px; border-radius: 999px;
+    font-size: 12px; font-weight: 600;
+    border: 1px solid rgba(201, 168, 76, 0.3);
+  }
+  .about-text h2 { font-size: clamp(28px, 3.4vw, 40px); margin-bottom: 16px; line-height: 1.1; }
+  .about-text p { color: var(--text-2); font-size: 16px; margin: 0 0 14px; }
+  .about-features {
+    list-style: none; padding: 0; margin: 24px 0 0;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px;
+  }
+  .about-features li {
+    display: flex; gap: 10px; align-items: flex-start;
+    font-size: 14px; color: var(--text-1); font-weight: 500;
+  }
+  .about-features li svg { flex-shrink: 0; color: var(--gold-dark); margin-top: 2px; }
+
+  /* ----- galeria ----- */
+  .gallery {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+  }
+  @media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+  .gallery div {
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 1;
+    background: var(--surface-3);
+    box-shadow: var(--shadow-card);
+  }
+  .gallery div:nth-child(1), .gallery div:nth-child(4) {
+    aspect-ratio: 1 / 1.2;
+  }
+  .gallery img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .gallery div:hover img { transform: scale(1.06); }
+
+  /* ----- info / contato ----- */
+  .info {
+    background: var(--navy);
+    color: #f0f4f8;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(201, 168, 76, 0.08) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+  .info .eyebrow { color: var(--gold-light); }
+  .info .eyebrow::before { background: var(--gold-light); }
+  .info h2 { color: #f0f4f8; }
+  .info-grid {
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px;
+  }
+  @media (max-width: 900px) { .info-grid { grid-template-columns: 1fr; gap: 40px; } }
+  .info-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    margin-bottom: 12px;
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .info-card .ic {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: rgba(201, 168, 76, 0.14);
+    color: var(--gold-light);
+    display: grid; place-items: center; flex-shrink: 0;
+  }
+  .info-card .ic svg { width: 22px; height: 22px; }
+  .info-card h4 { font-size: 15px; color: var(--gold-light); margin-bottom: 4px; }
+  .info-card p { margin: 0; color: #c4cfdc; font-size: 14px; line-height: 1.55; }
+  .info-card a { color: #f0f4f8; }
+
+  .hours-row { display: flex; justify-content: space-between; padding: 8px 0; font-size: 14px; }
+  .hours-row + .hours-row { border-top: 1px dashed rgba(255, 255, 255, 0.08); }
+  .hours-row span:first-child { color: #c4cfdc; }
+  .hours-row span:last-child { color: var(--gold-light); font-weight: 500; }
+  .hours-row.closed span:last-child { color: #f87171; }
+
+  .map-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--navy-3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    aspect-ratio: 1 / 1.05;
+    position: relative;
+    display: grid; place-items: end stretch;
+  }
+  .map-card iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: saturate(0.9); }
+  .map-pin {
+    position: relative; z-index: 2;
+    margin: 20px;
+    background: rgba(13, 27, 42, 0.92);
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    backdrop-filter: blur(10px);
+  }
+  .map-pin strong { display: block; color: var(--gold-light); font-size: 14px; margin-bottom: 2px; }
+  .map-pin span { font-size: 13px; color: #c4cfdc; }
+
+  /* ----- final CTA ----- */
+  .cta {
+    padding: 80px 0;
+    text-align: center;
+  }
+  .cta-card {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 56px 32px;
+    box-shadow: var(--shadow-card);
+    max-width: 760px; margin: 0 auto;
+    position: relative; overflow: hidden;
+  }
+  .cta-card::before {
+    content: ""; position: absolute; inset: -1px;
+    background: radial-gradient(circle at top, rgba(201, 168, 76, 0.12), transparent 60%);
+    pointer-events: none;
+  }
+  .cta-card h2 { font-size: clamp(26px, 3vw, 36px); margin-bottom: 12px; }
+  .cta-card p { color: var(--text-2); margin: 0 0 28px; font-size: 16px; }
+
+  /* ----- footer ----- */
+  footer {
+    background: var(--navy);
+    color: #a0aec0;
+    padding: 36px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 24px;
+    display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap;
+  }
+  .footer-inner small { font-size: 13px; }
+
+  /* ----- WhatsApp button + modal ----- */
+  .wa-fab {
+    position: fixed; right: 22px; bottom: 22px; z-index: 50;
+    background: #25d366; color: #fff;
+    width: 60px; height: 60px; border-radius: 999px;
+    display: grid; place-items: center;
+    box-shadow: 0 16px 40px -10px rgba(37, 211, 102, 0.5);
+    cursor: pointer; border: 0;
+    transition: transform 0.15s;
+  }
+  .wa-fab:hover { transform: scale(1.06); }
+  .wa-fab::after {
+    content: ""; position: absolute; inset: -4px; border-radius: 999px;
+    border: 2px solid rgba(37, 211, 102, 0.5);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    70% { transform: scale(1.15); opacity: 0; }
+    100% { transform: scale(1.15); opacity: 0; }
+  }
+
+  .wa-modal-bg {
+    position: fixed; inset: 0; z-index: 60;
+    background: rgba(13, 27, 42, 0.55);
+    backdrop-filter: blur(6px);
+    display: grid; place-items: center;
+    padding: 16px;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.2s;
+  }
+  .wa-modal-bg.show { opacity: 1; pointer-events: auto; }
+  .wa-modal {
+    background: #efeae2;
+    width: min(380px, 100%); max-height: 600px;
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    box-shadow: var(--shadow-lg);
+    transform: translateY(12px) scale(0.98);
+    transition: transform 0.25s;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(13, 27, 42, 0.04) 1px, transparent 0);
+    background-size: 18px 18px;
+  }
+  .wa-modal-bg.show .wa-modal { transform: translateY(0) scale(1); }
+  .wa-head {
+    background: #075e54; color: #fff;
+    padding: 14px 16px; display: flex; align-items: center; gap: 12px;
+  }
+  .wa-head-pic {
+    width: 40px; height: 40px; border-radius: 999px;
+    background: var(--navy); display: grid; place-items: center;
+    overflow: hidden; flex-shrink: 0;
+  }
+  .wa-head-pic img { width: 100%; height: 100%; object-fit: cover; }
+  .wa-head-info { flex: 1; min-width: 0; }
+  .wa-head-info strong { display: block; font-size: 15px; }
+  .wa-head-info small { font-size: 12px; opacity: 0.85; }
+  .wa-close {
+    background: transparent; border: 0; color: #fff; cursor: pointer;
+    padding: 6px; border-radius: 8px; opacity: 0.8;
+  }
+  .wa-close:hover { opacity: 1; background: rgba(255, 255, 255, 0.1); }
+  .wa-body {
+    flex: 1; padding: 16px; overflow-y: auto;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .wa-msg {
+    max-width: 85%; padding: 8px 12px;
+    border-radius: 8px; font-size: 14px; line-height: 1.4;
+    box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+    position: relative;
+    word-wrap: break-word;
+  }
+  .wa-msg.them { background: #fff; align-self: flex-start; border-top-left-radius: 0; }
+  .wa-msg.me { background: #d9fdd3; align-self: flex-end; border-top-right-radius: 0; }
+  .wa-msg time { display: block; font-size: 10px; color: #667781; text-align: right; margin-top: 2px; }
+  .wa-typing {
+    background: #fff; align-self: flex-start;
+    padding: 12px 14px; border-radius: 8px; border-top-left-radius: 0;
+    display: inline-flex; gap: 4px;
+  }
+  .wa-typing i {
+    width: 6px; height: 6px; border-radius: 999px; background: #b0b8c1;
+    animation: wave 1.2s infinite;
+  }
+  .wa-typing i:nth-child(2) { animation-delay: 0.15s; }
+  .wa-typing i:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes wave {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+    30% { transform: translateY(-4px); opacity: 1; }
+  }
+  .wa-suggest {
+    padding: 0 16px 8px;
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .wa-suggest button {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(13, 27, 42, 0.15);
+    border-radius: 999px;
+    padding: 6px 12px; font-size: 12px; font-family: inherit;
+    color: var(--navy); cursor: pointer;
+    transition: background 0.15s;
+  }
+  .wa-suggest button:hover { background: #fff; }
+  .wa-input {
+    background: #f0f2f5;
+    padding: 8px; display: flex; align-items: center; gap: 8px;
+  }
+  .wa-input input {
+    flex: 1; background: #fff; border: 0; outline: 0;
+    border-radius: 999px; padding: 10px 14px;
+    font-size: 14px; font-family: inherit;
+  }
+  .wa-input button {
+    background: #075e54; color: #fff; border: 0;
+    width: 40px; height: 40px; border-radius: 999px;
+    display: grid; place-items: center; cursor: pointer;
+    flex-shrink: 0;
+  }
+  .wa-input button:hover { background: #0a7268; }
+  .wa-mock-tag {
+    text-align: center; font-size: 10px; color: #667781;
+    padding: 4px; background: rgba(255, 255, 255, 0.4);
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <a class="brand" href="#top">
+      <span class="brand-logo"><svg viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><circle cx="22" cy="22" r="20" fill="#0d1b2a"/><circle cx="22" cy="22" r="14" fill="none" stroke="#c9a84c" stroke-width="2"/><circle cx="22" cy="22" r="5" fill="#c9a84c"/><text x="22" y="35" text-anchor="middle" font-family="DM Sans, sans-serif" font-weight="700" font-size="7" fill="#c9a84c" letter-spacing="1">NSA</text></svg></span>
+      <span class="brand-name">
+        Borracharia Aparecida
+        <small>Nossa Senhora Aparecida · desde 1998</small>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="#servicos">Serviços</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <button class="nav-cta" onclick="openWA()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg>
+      WhatsApp
+    </button>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Borracharia 24h em Aparecida</div>
+      <h1>Pneu furou? <br /><span class="accent">Em 15 minutos</span> você está de volta na estrada.</h1>
+      <p class="lead">Há mais de 25 anos cuidando do seu carro com a confiança de quem entende. Conserto, troca, balanceamento e socorro em casa ou na estrada — atendimento rápido, preço justo e equipe preparada.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="openWA()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg>
+          Chamar no WhatsApp
+        </button>
+        <a class="btn btn-ghost" href="#servicos">Ver serviços</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>25+</strong><span>anos de oficina</span></div>
+        <div><strong>12mil</strong><span>clientes atendidos</span></div>
+        <div><strong>4.9★</strong><span>no Google</span></div>
+      </div>
+    </div>
+    <div class="hero-card-wrap">
+      <div class="hero-card placeholder" data-label="[ foto · oficina · pneus ]">
+        <div class="hero-card-tag">
+          <strong>Atendimento 24h</strong>
+          <span>Socorro na estrada e em casa, todos os dias</span>
+        </div>
+      </div>
+      <div class="hero-floater">
+        <span class="dot"></span>
+        <div>
+          <small>Online agora</small>
+          <strong>Resposta em ~2min</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Serviços -->
+<section id="servicos" class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">O que fazemos</div>
+      <h2>Serviços de borracharia completa, sem enrolação.</h2>
+      <p>Do conserto rápido ao alinhamento de precisão — tudo no mesmo lugar, com equipamento profissional e mão de obra especializada.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div>
+        <h3>Conserto de pneu</h3>
+        <p>Reparo de furos com manchão profissional, garantia de 30 dias. Carros, motos e utilitários.</p>
+        <div class="price"><span>A partir de</span><strong>R$ 25</strong></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Balanceamento</h3>
+        <p>Máquina computadorizada que elimina vibrações no volante e prolonga a vida do pneu.</p>
+        <div class="price"><span>4 rodas</span><strong>R$ 80</strong></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M6 6h12M6 18h12"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <h3>Alinhamento 3D</h3>
+        <p>Correção precisa da geometria com leitura digital. Carro estável, pneu durando muito mais.</p>
+        <div class="price"><span>A partir de</span><strong>R$ 100</strong></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div>
+        <h3>Troca de pneus</h3>
+        <p>Marcas Pirelli, Goodyear, Michelin e linhas mais econômicas. Calibragem com nitrogênio inclusa.</p>
+        <div class="price"><span>Avulso ou jogo</span><strong>Sob consulta</strong></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-8 4 4 4-7 4 5 2-3"/><path d="M3 21h18"/></svg></div>
+        <h3>Calibragem com nitrogênio</h3>
+        <p>Pressão estável, menos consumo de combustível e maior segurança em viagem.</p>
+        <div class="price"><span>4 rodas</span><strong>R$ 30</strong></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l1.5-5h11L19 11M5 11h14v6a2 2 0 0 1-2 2h-1M5 11v6a2 2 0 0 0 2 2h1M9 19v2M15 19v2"/><circle cx="8" cy="14" r="1"/><circle cx="16" cy="14" r="1"/></svg></div>
+        <h3>Socorro 24h</h3>
+        <p>Atendimento na estrada ou na sua casa. Levamos pneu, equipamento e resolvemos no local.</p>
+        <div class="price"><span>Atende em</span><strong>~30 min</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sobre -->
+<section id="sobre" class="about section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img placeholder" data-label="[ foto · equipe / fachada ]">
+        <span class="about-badge">Desde 1998</span>
+      </div>
+      <div class="about-text">
+        <div class="eyebrow">Nossa história</div>
+        <h2>Uma borracharia de bairro que cresceu junto com a cidade.</h2>
+        <p>A Borracharia Nossa Senhora Aparecida começou em 1998 como uma pequena oficina de família. Mais de duas décadas depois, atendemos milhares de motoristas todo ano — sem perder o jeito de bairro: chamamos pelo nome, explicamos o que vai ser feito antes de começar e a conta nunca tem surpresa.</p>
+        <p>Hoje contamos com equipamentos modernos de alinhamento 3D, balanceadora digital e equipe treinada — mas o que continua nos diferenciando é o atendimento honesto.</p>
+        <ul class="about-features">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg> Orçamento sem compromisso</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg> Garantia em todos os reparos</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg> Pix, débito, crédito e dinheiro</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg> Equipe certificada</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg> Atendimento 24h</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg> Socorro a domicílio</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Galeria -->
+<section id="galeria" class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">A oficina</div>
+      <h2>Veja onde seu carro vai ser cuidado.</h2>
+    </div>
+    <div class="gallery">
+      <div class="placeholder" data-label="[ oficina ]"></div>
+      <div class="placeholder light" data-label="[ pneus novos ]"></div>
+      <div class="placeholder light" data-label="[ equipamento ]"></div>
+      <div class="placeholder" data-label="[ carro ]"></div>
+      <div class="placeholder light" data-label="[ balanceamento ]"></div>
+      <div class="placeholder" data-label="[ detalhe ]"></div>
+      <div class="placeholder" data-label="[ alinhamento 3D ]"></div>
+      <div class="placeholder light" data-label="[ fachada ]"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Contato / Localização -->
+<section id="contato" class="info section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Onde estamos</div>
+      <h2>Visita, recado ou orçamento — você escolhe.</h2>
+    </div>
+    <div class="info-grid">
+      <div>
+        <div class="info-card">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div>
+            <h4>Endereço</h4>
+            <p>Av. Nossa Senhora Aparecida, 1.842<br />Bairro São Pedro · CEP 18540-000<br />Salto de Pirapora · SP</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div>
+            <h4>Telefone & WhatsApp</h4>
+            <p><a href="javascript:openWA()">(15) 99876-1234</a><br />Atendimento em chat 24h</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div>
+            <h4>Horário de funcionamento</h4>
+            <div style="margin-top:10px">
+              <div class="hours-row"><span>Seg – Sex</span><span>07:00 – 19:00</span></div>
+              <div class="hours-row"><span>Sábado</span><span>08:00 – 17:00</span></div>
+              <div class="hours-row"><span>Domingo</span><span>09:00 – 13:00</span></div>
+              <div class="hours-row"><span>Socorro 24h</span><span>Sob demanda</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="map-card">
+        <iframe loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-47.580%2C-23.660%2C-47.560%2C-23.640&layer=mapnik&marker=-23.650%2C-47.570" title="Mapa" referrerpolicy="no-referrer"></iframe>
+        <div class="map-pin">
+          <strong>Borracharia Aparecida</strong>
+          <span>Av. N. Sra. Aparecida, 1842 · Salto de Pirapora</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <div class="cta-card">
+      <div class="eyebrow" style="justify-content:center; display:inline-flex">Precisa agora?</div>
+      <h2>Mande uma foto do pneu pelo WhatsApp.</h2>
+      <p>A gente responde em minutos com orçamento e horário disponível.</p>
+      <button class="btn btn-primary" onclick="openWA()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg>
+        Iniciar conversa no WhatsApp
+      </button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <small>© 2026 Borracharia Nossa Senhora Aparecida · Salto de Pirapora · SP</small>
+    <small>CNPJ 00.000.000/0001-00 · Site demonstrativo</small>
+  </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<button class="wa-fab" onclick="openWA()" aria-label="Abrir WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg>
+</button>
+
+<!-- WhatsApp Mock Modal -->
+<div class="wa-modal-bg" id="waBg" onclick="if(event.target.id==='waBg')closeWA()">
+  <div class="wa-modal" role="dialog" aria-label="Conversa do WhatsApp">
+    <div class="wa-head">
+      <div class="wa-head-pic"><svg viewBox="0 0 44 44" width="40" height="40" aria-hidden="true"><circle cx="22" cy="22" r="20" fill="#0d1b2a"/><circle cx="22" cy="22" r="14" fill="none" stroke="#c9a84c" stroke-width="2"/><circle cx="22" cy="22" r="5" fill="#c9a84c"/></svg></div>
+      <div class="wa-head-info">
+        <strong>Borracharia Aparecida</strong>
+        <small id="waStatus">online</small>
+      </div>
+      <button class="wa-close" onclick="closeWA()" aria-label="Fechar">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="wa-mock-tag">— conversa de demonstração —</div>
+    <div class="wa-body" id="waBody"></div>
+    <div class="wa-suggest" id="waSuggest"></div>
+    <div class="wa-input">
+      <input id="waInput" type="text" placeholder="Digite uma mensagem" onkeydown="if(event.key==='Enter')sendWA()" />
+      <button onclick="sendWA()" aria-label="Enviar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ----- WhatsApp Mock -----
+  const bg = document.getElementById('waBg');
+  const body = document.getElementById('waBody');
+  const suggest = document.getElementById('waSuggest');
+  const input = document.getElementById('waInput');
+  const status = document.getElementById('waStatus');
+
+  function fmtTime() {
+    const d = new Date();
+    return d.getHours().toString().padStart(2, '0') + ':' + d.getMinutes().toString().padStart(2, '0');
+  }
+
+  function bubble(text, who) {
+    const el = document.createElement('div');
+    el.className = 'wa-msg ' + who;
+    el.innerHTML = text + '<time>' + fmtTime() + '</time>';
+    body.appendChild(el);
+    body.scrollTop = body.scrollHeight;
+    return el;
+  }
+
+  function typing(show) {
+    let t = document.getElementById('waTyping');
+    if (show) {
+      if (t) return;
+      t = document.createElement('div');
+      t.className = 'wa-typing';
+      t.id = 'waTyping';
+      t.innerHTML = '<i></i><i></i><i></i>';
+      body.appendChild(t);
+      body.scrollTop = body.scrollHeight;
+      status.textContent = 'digitando…';
+    } else {
+      if (t) t.remove();
+      status.textContent = 'online';
+    }
+  }
+
+  function showSuggestions(items) {
+    suggest.innerHTML = '';
+    items.forEach(s => {
+      const b = document.createElement('button');
+      b.textContent = s.label;
+      b.onclick = () => { suggest.innerHTML = ''; userSays(s.label, s.replyKey); };
+      suggest.appendChild(b);
+    });
+  }
+
+  const replies = {
+    pneu_furado: [
+      'Que situação chata 😕 Você está em casa, no trabalho ou parado na rua?',
+      'Conseguimos fazer o reparo ou levar um pneu novo no local. Pra montar o orçamento, me passa por favor:\n• Modelo e ano do carro\n• Medida do pneu (ex: 195/65 R15)\n• Bairro/endereço'
+    ],
+    socorro_24h: [
+      'Estamos disponíveis agora 🚨 Onde você está?',
+      'Te mando o técnico em até 30 minutos. Pode mandar a localização do Google Maps por aqui?'
+    ],
+    orcamento_balanc: [
+      'Balanceamento das 4 rodas: R$ 80,00 ✨',
+      'Se quiser fazer junto com alinhamento 3D fica R$ 160 (em vez de R$ 180). Quer agendar pra quando?'
+    ],
+    horario: [
+      'Estamos abertos:\n• Seg–Sex: 07h às 19h\n• Sábado: 08h às 17h\n• Domingo: 09h às 13h\n• Socorro 24h: sob demanda 🌙'
+    ],
+    default: [
+      'Obrigado pela mensagem! 😊',
+      'Em instantes um atendente real te responde. Enquanto isso, posso te ajudar com:'
+    ]
+  };
+
+  const initialSuggestions = [
+    { label: 'Estou com pneu furado', replyKey: 'pneu_furado' },
+    { label: 'Preciso de socorro 24h', replyKey: 'socorro_24h' },
+    { label: 'Orçamento balanceamento', replyKey: 'orcamento_balanc' },
+    { label: 'Qual o horário?', replyKey: 'horario' }
+  ];
+
+  function botReply(key) {
+    const messages = replies[key] || replies.default;
+    let delay = 600;
+    messages.forEach((msg, i) => {
+      setTimeout(() => typing(true), delay - 400);
+      setTimeout(() => {
+        typing(false);
+        bubble(msg.replace(/\n/g, '<br>'), 'them');
+        if (i === messages.length - 1) {
+          setTimeout(() => showSuggestions(initialSuggestions), 400);
+        }
+      }, delay);
+      delay += 1400 + msg.length * 8;
+    });
+  }
+
+  function userSays(text, replyKey) {
+    bubble(text, 'me');
+    setTimeout(() => botReply(replyKey || 'default'), 400);
+  }
+
+  function sendWA() {
+    const v = input.value.trim();
+    if (!v) return;
+    input.value = '';
+    suggest.innerHTML = '';
+    userSays(v);
+  }
+
+  let waInitialized = false;
+  function initWAConversation() {
+    if (waInitialized) return;
+    waInitialized = true;
+    setTimeout(() => {
+      typing(true);
+      setTimeout(() => {
+        typing(false);
+        bubble('Olá! 👋 Aqui é da <b>Borracharia Aparecida</b>. Em que posso te ajudar hoje?', 'them');
+        setTimeout(() => showSuggestions(initialSuggestions), 500);
+      }, 1200);
+    }, 300);
+  }
+
+  function openWA() {
+    bg.classList.add('show');
+    initWAConversation();
+    setTimeout(() => input.focus(), 250);
+  }
+  function closeWA() { bg.classList.remove('show'); }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeWA(); });
+</script>
+
+</body>
+</html>
