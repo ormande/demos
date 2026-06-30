@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz 5 meses, Amor 🖤</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --brd: #6B1A2E;
+  --brd2: #8B2540;
+  --gold: #C9A84C;
+  --gold2: #E8CC7A;
+  --dark: #100609;
+  --dark2: #1C0B10;
+  --cream: #FFF8F2;
+  --text: #F0DEC8;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--dark);
+  color: var(--text);
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ─── SPLASH ─── */
+#splash {
+  position: fixed; inset: 0;
+  background: var(--dark);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  z-index: 999;
+  cursor: pointer;
+  transition: opacity .9s ease;
+}
+#splash h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 10vw, 5rem);
+  color: var(--gold);
+  letter-spacing: .04em;
+  margin-bottom: .4rem;
+}
+#splash p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(.9rem, 3.5vw, 1.15rem);
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  opacity: .55;
+  margin-bottom: 3.5rem;
+}
+#splash-hint {
+  font-size: .72rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  opacity: .35;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:.25} 50%{opacity:.65} }
+
+/* ─── MUSIC BTN ─── */
+#music-btn {
+  position: fixed; bottom: 1.4rem; right: 1.4rem;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,168,76,.35);
+  background: rgba(16,6,9,.6);
+  backdrop-filter: blur(6px);
+  color: var(--gold);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 100;
+  transition: border-color .2s, background .2s;
+}
+#music-btn:hover { background: rgba(201,168,76,.12); border-color: var(--gold); }
+
+/* ─── SHARED ─── */
+.divider {
+  width: 60px; height: 1px;
+  background: var(--gold);
+  opacity: .35;
+  margin: 2rem auto;
+}
+
+/* ─── HERO ─── */
+#hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  position: relative;
+}
+#hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 60%, var(--brd2) 0%, transparent 65%);
+  opacity: .18;
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-size: .72rem;
+  letter-spacing: .38em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.4rem;
+}
+.hero-num {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(5rem, 22vw, 12rem);
+  color: var(--gold);
+  line-height: .9;
+  text-shadow: 0 0 80px rgba(201,168,76,.18);
+  position: relative;
+}
+.hero-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem, 4vw, 1.6rem);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  margin-top: .6rem;
+  opacity: .7;
+}
+.hero-names {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.2rem, 5vw, 2rem);
+  color: var(--text);
+  margin-top: 1.6rem;
+}
+#typewriter {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(.95rem, 3.5vw, 1.25rem);
+  color: var(--text);
+  opacity: .6;
+  margin-top: 1rem;
+  min-height: 1.8em;
+  letter-spacing: .04em;
+}
+#typewriter::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+  color: var(--gold);
+  opacity: .7;
+}
+@keyframes blink { 0%,100%{opacity:.7} 50%{opacity:0} }
+
+.scroll-cue {
+  position: absolute;
+  bottom: 2rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column;
+  align-items: center; gap: .5rem;
+  opacity: .25;
+}
+.scroll-cue span { font-size: .65rem; letter-spacing: .25em; text-transform: uppercase; }
+.scroll-arrow {
+  width: 16px; height: 16px;
+  border-right: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  transform: rotate(45deg);
+  animation: scrollBounce 1.6s ease-in-out infinite;
+}
+@keyframes scrollBounce { 0%,100%{transform:rotate(45deg) translate(0,0)} 50%{transform:rotate(45deg) translate(3px,3px)} }
+
+/* ─── SECTION WRAPPER ─── */
+.sec {
+  max-width: 660px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem;
+}
+.sec-label {
+  font-size: .68rem;
+  letter-spacing: .38em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: .5rem;
+}
+.sec-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.7rem, 6vw, 2.4rem);
+  line-height: 1.2;
+  margin-bottom: 3rem;
+}
+
+/* ─── TIMELINE ─── */
+.tl-item {
+  display: flex;
+  gap: 1.4rem;
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.tl-item.vis { opacity: 1; transform: none; }
+
+.tl-spine {
+  display: flex; flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 14px;
+}
+.tl-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 10px rgba(201,168,76,.45);
+  flex-shrink: 0;
+}
+.tl-line {
+  width: 1px;
+  flex-grow: 1;
+  background: linear-gradient(to bottom, rgba(201,168,76,.3), transparent);
+  margin-top: 5px;
+}
+
+.tl-body { flex: 1; }
+.tl-month {
+  font-size: .68rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: .8rem;
+}
+
+.tl-photo {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 3px;
+  border: 1px solid rgba(201,168,76,.18);
+  background: var(--dark2);
+  margin-bottom: 1rem;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(201,168,76,.25);
+  font-size: .75rem;
+  letter-spacing: .1em;
+}
+.tl-photo img { width:100%; height:100%; object-fit:cover; }
+
+.tl-caption {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  opacity: .82;
+}
+
+/* ─── QUIZ ─── */
+#quiz-section { background: linear-gradient(to bottom, transparent, rgba(107,26,46,.08), transparent); }
+
+.quiz-box {
+  border: 1px solid rgba(201,168,76,.18);
+  border-radius: 6px;
+  padding: 2rem 1.5rem;
+  background: rgba(28,11,16,.5);
+}
+.quiz-prog {
+  font-size: .68rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: .55;
+  margin-bottom: 1.2rem;
+}
+.quiz-q {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 3.8vw, 1.2rem);
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+}
+.quiz-opts { display: flex; flex-direction: column; gap: .65rem; }
+
+.quiz-opt {
+  padding: .85rem 1.1rem;
+  border: 1px solid rgba(201,168,76,.22);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text);
+  font-family: 'Lato', sans-serif;
+  font-size: .9rem;
+  letter-spacing: .04em;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color .2s, background .2s;
+  line-height: 1.4;
+}
+.quiz-opt:hover:not(:disabled) { border-color: var(--gold); background: rgba(201,168,76,.07); }
+.quiz-opt.right {
+  border-color: var(--gold);
+  background: rgba(201,168,76,.13);
+  color: var(--gold2);
+  animation: pulseRight .5s ease both;
+}
+.quiz-opt.wrong {
+  border-color: rgba(139,37,64,.6);
+  opacity: .45;
+  animation: shakeWrong .4s ease both;
+}
+.quiz-opt:disabled { cursor: default; }
+
+@keyframes pulseRight {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.03); box-shadow: 0 0 14px rgba(201,168,76,.35); }
+  100% { transform: scale(1); }
+}
+@keyframes shakeWrong {
+  0%,100% { transform: translateX(0); }
+  20%     { transform: translateX(-6px); }
+  40%     { transform: translateX(5px); }
+  60%     { transform: translateX(-4px); }
+  80%     { transform: translateX(3px); }
+}
+
+.quiz-fb-wrong {
+  color: rgba(232, 130, 130, 0.85);
+}
+.quiz-fb-right {
+  color: var(--gold2);
+}
+
+.quiz-fb {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 1rem;
+  min-height: 1.4rem;
+  opacity: .8;
+}
+.quiz-nxt {
+  display: none;
+  margin-top: 1.4rem;
+  padding: .75rem 1.8rem;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: 'Lato', sans-serif;
+  font-size: .78rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .2s;
+}
+.quiz-nxt:hover { background: rgba(201,168,76,.1); }
+
+/* CUPOM */
+.cupom {
+  border: 1.5px dashed rgba(201,168,76,.5);
+  border-radius: 6px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  margin-top: .5rem;
+  position: relative;
+}
+.cupom-eyebrow { font-size: .65rem; letter-spacing: .38em; text-transform: uppercase; color: var(--gold); opacity:.6; }
+.cupom-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  color: var(--gold2);
+  margin: .4rem 0 .5rem;
+}
+.cupom-body { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; opacity: .7; line-height:1.6; }
+
+/* ─── BUTTON GAME ─── */
+#game-sec {
+  min-height: 80vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  position: relative;
+}
+.game-intro {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(.95rem, 3.5vw, 1.2rem);
+  opacity: .65;
+  max-width: 460px;
+  line-height: 1.7;
+  margin-bottom: .8rem;
+}
+.game-q {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.1rem, 5vw, 1.7rem);
+  color: var(--gold2);
+  max-width: 480px;
+  line-height: 1.45;
+  margin-bottom: 2.5rem;
+}
+.game-btns {
+  display: flex; gap: 1.2rem;
+  align-items: center; justify-content: center;
+  flex-wrap: wrap;
+}
+.btn-yes {
+  padding: .9rem 2.2rem;
+  background: var(--gold);
+  color: var(--dark);
+  border: none;
+  border-radius: 3px;
+  font-family: 'Lato', sans-serif;
+  font-size: .85rem;
+  font-weight: 400;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .2s, transform .15s;
+}
+.btn-yes:hover { background: var(--gold2); transform: scale(1.04); }
+
+.btn-no {
+  padding: .9rem 2.2rem;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 3px;
+  font-family: 'Lato', sans-serif;
+  font-size: .85rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity .12s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+.game-win {
+  display: none;
+  animation: popIn .5s cubic-bezier(.34,1.56,.64,1) both;
+}
+@keyframes popIn { from{opacity:0;transform:scale(.85)} to{opacity:1;transform:scale(1)} }
+.game-win p:first-child {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.3rem, 5vw, 2rem);
+  color: var(--gold2);
+  margin-bottom: .5rem;
+}
+.game-win p:last-child {
+  font-size: .9rem;
+  opacity: .5;
+  letter-spacing: .05em;
+}
+
+/* ─── FINAL ─── */
+#final-sec {
+  text-align: center;
+  padding-bottom: 7rem;
+}
+.final-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.05rem, 4vw, 1.35rem);
+  line-height: 2;
+  opacity: .82;
+  max-width: 480px;
+  margin: 0 auto 2rem;
+}
+.final-sig {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--gold);
+}
+
+/* ─── AUDIO hidden ─── */
+#love-song { position:fixed; width:0; height:0; opacity:0; pointer-events:none; }
+</style>
+</head>
+<body>
+
+<!-- ── SPLASH ────────────────────── -->
+<div id="splash">
+  <h1>Feliz 5 Meses</h1>
+  <p>Ale &amp; Kayke</p>
+  <span id="splash-hint">toque para começar</span>
+</div>
+
+<!-- ── MUSIC TOGGLE ──────────────── -->
+<button id="music-btn" title="Música">♪</button>
+
+<!-- ── LOCAL MUSIC ───────────────── -->
+<audio id="love-song" preload="auto" loop>
+  <source src="JVKE - golden hour (official music video) - JVKE (youtube).mp3" type="audio/mpeg">
+</audio>
+
+<!-- ═══════════════════════════════ -->
+<!--           HERO                  -->
+<!-- ═══════════════════════════════ -->
+<section id="hero">
+  <span class="hero-eyebrow">30 · 01 · 2026</span>
+  <div class="hero-num">5</div>
+  <div class="hero-label">meses</div>
+  <div class="hero-names">Alexsandra &amp; Kayke</div>
+  <div class="divider" style="margin:1.5rem auto 1rem;"></div>
+  <p id="typewriter"></p>
+  <div class="scroll-cue">
+    <span>rolar</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ -->
+<!--        TIMELINE                 -->
+<!-- ═══════════════════════════════ -->
+<div class="sec" id="tl-sec">
+  <span class="sec-label">nossa história</span>
+  <h2 class="sec-title">Mês a mês</h2>
+
+  <!-- Mês 1 ─ Janeiro -->
+  <div class="tl-item">
+    <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+    <div class="tl-body">
+      <div class="tl-month">Janeiro · 2026</div>
+      <div class="tl-photo"><img src="1ª foto.jpg" alt="Plantando a semente"></div>
+      <p class="tl-caption">plantando a semente</p>
+    </div>
+  </div>
+
+  <!-- Mês 2 ─ Fevereiro -->
+  <div class="tl-item">
+    <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+    <div class="tl-body">
+      <div class="tl-month">Fevereiro · 2026</div>
+      <div class="tl-photo"><img src="2ª foto.jpg" alt="Te fazer feliz me faz feliz"></div>
+      <p class="tl-caption">te fazer feliz me faz feliz</p>
+    </div>
+  </div>
+
+  <!-- Mês 3 ─ Março -->
+  <div class="tl-item">
+    <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+    <div class="tl-body">
+      <div class="tl-month">Março · 2026</div>
+      <div class="tl-photo"><img src="3ª foto.jpg" alt="O seu sorriso é a melhor visão que eu posso ter"></div>
+      <p class="tl-caption">o seu sorriso é a melhor visão que eu posso ter</p>
+    </div>
+  </div>
+
+  <!-- Mês 4 ─ Abril (mês do primeiro beijo 11/04) -->
+  <div class="tl-item">
+    <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+    <div class="tl-body">
+      <div class="tl-month">Abril · 2026</div>
+      <div class="tl-photo"><img src="4ª foto.jpg" alt="Seu abraço é o meu abrigo"></div>
+      <p class="tl-caption">seu abraço é o meu abrigo</p>
+    </div>
+  </div>
+
+  <!-- Mês 5 ─ Maio/Junho -->
+  <div class="tl-item">
+    <div class="tl-spine"><div class="tl-dot"></div></div>
+    <div class="tl-body">
+      <div class="tl-month">Maio · 2026</div>
+      <div class="tl-photo"><img src="5ª foto.jpg" alt="Eu amo dividir a minha vida com você"></div>
+      <p class="tl-caption">eu amo dividir a minha vida com você 🖤</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<!--        QUIZ                     -->
+<!-- ═══════════════════════════════ -->
+<div class="sec" id="quiz-section">
+  <span class="sec-label">você sabe mesmo?</span>
+  <h2 class="sec-title">O quiz do Kayke</h2>
+  <div class="quiz-box">
+    <div id="quiz-inner">
+      <p class="quiz-prog" id="quiz-prog">Pergunta 1 de 5</p>
+      <p class="quiz-q" id="quiz-q"></p>
+      <div class="quiz-opts" id="quiz-opts"></div>
+      <p class="quiz-fb" id="quiz-fb"></p>
+      <button class="quiz-nxt" id="quiz-nxt" onclick="nextQ()">Próxima →</button>
+    </div>
+    <div id="quiz-result" style="display:none;"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<!--      BUTTON GAME                -->
+<!-- ═══════════════════════════════ -->
+<section id="game-sec">
+  <p class="game-intro">Você foi incrível até aqui.<br>Mas tenho uma última — e importante — pergunta.</p>
+  <p class="game-q">Quando a gente morar junto,<br>a gente pode ter um vira-lata caramelo? 🐶</p>
+  <div class="game-btns" id="game-btns">
+    <button class="btn-yes" onclick="gameWin()">Claro que sim 🖤</button>
+    <button class="btn-no" id="btn-no">Não</button>
+  </div>
+  <div class="game-win" id="game-win">
+    <p>Sabia que você ia dizer sim 🐾</p>
+    <p>Já até pensei num nome...</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ -->
+<!--        FINAL                    -->
+<!-- ═══════════════════════════════ -->
+<div class="sec" id="final-sec" style="text-align:center; padding-bottom:7rem;">
+  <div class="divider"></div>
+  <span class="sec-label">obrigado</span>
+  <h2 class="sec-title">Por esses 5 meses</h2>
+  <p class="final-text">
+    Cada dia com você é um motivo novo pra sorrir.<br>
+    Que venham muitas datas pra comemorar —<br>
+    e que cada uma delas seja ainda melhor que essa.
+  </p>
+  <p class="final-sig">Com amor, Kayke 🖤</p>
+  <div class="divider" style="margin-top:2rem;"></div>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<!--        SCRIPTS                  -->
+<!-- ═══════════════════════════════ -->
+<script>
+// ─── QUIZ DATA ───────────────────────────────────────────────
+const QS = [
+  {
+    q: "Qual foi o nosso primeiro filme juntos?",
+    opts: ["Zootopia 2", "Uma segunda chance", "Invocação do Mal 4", "A empregada"],
+    ans: 2,
+    fb: "Que medo foi esse dia 👻",
+    fbWrong: "Hmm... não foi bem esse não 😅"
+  },
+  {
+    q: "Qual é a comida favorita do Kayke?",
+    opts: ["Churrasco", "Hambúrguer", "Caneloni", "Macarrão ao molho"],
+    ans: 2,
+    fb: "Você me conhece bem demais 😏",
+    fbWrong: "Tá me subestimando né? 😄"
+  },
+  {
+    q: "Onde foi o nosso primeiro encontro?",
+    opts: ["Show do Jorge e Mateus", "Parque das Nações", "Pro Burger", "Standard"],
+    ans: 3,
+    fb: "Aquele dia foi especial ✨",
+    fbWrong: "Quase... mas não foi esse lugar não 😄"
+  },
+  {
+    q: "Quando foi o nosso primeiro beijo?",
+    opts: ["10/04/2025", "15/04/2025", "01/05/2025", "11/04/2025"],
+    ans: 3,
+    fb: "Data que não sai da cabeça 💛",
+    fbWrong: "Essa data você não pode esquecer! 😅"
+  },
+  {
+    q: "Qual é o lugar que mais gostamos de ir juntos?",
+    opts: ["Pro Burger", "Torii", "KFC", "Burger Pub"],
+    ans: 3,
+    fb: "Esse lugar tem um gosto especial 🍔",
+    fbWrong: "Quase acertou o caminho... mas não era esse 😄"
+  }
+];
+
+let qIdx = 0, score = 0, qAnswered = false;
+
+function renderQ() {
+  const q = QS[qIdx];
+  document.getElementById('quiz-prog').textContent = `Pergunta ${qIdx+1} de ${QS.length}`;
+  document.getElementById('quiz-q').textContent = q.q;
+  document.getElementById('quiz-fb').textContent = '';
+  document.getElementById('quiz-fb').className = 'quiz-fb';
+  document.getElementById('quiz-nxt').style.display = 'none';
+  qAnswered = false;
+
+  const wrap = document.getElementById('quiz-opts');
+  wrap.innerHTML = '';
+  q.opts.forEach((o, i) => {
+    const b = document.createElement('button');
+    b.className = 'quiz-opt';
+    b.textContent = o;
+    b.onclick = () => pickOpt(i);
+    wrap.appendChild(b);
+  });
+}
+
+function pickOpt(i) {
+  if (qAnswered) return;
+  qAnswered = true;
+  const q = QS[qIdx];
+  const btns = document.querySelectorAll('.quiz-opt');
+  const acertou = (i === q.ans);
+
+  btns.forEach((b, idx) => {
+    b.disabled = true;
+    if (idx === q.ans) b.classList.add('right');
+    else if (idx === i) b.classList.add('wrong');
+  });
+
+  if (acertou) score++;
+
+  const fbEl = document.getElementById('quiz-fb');
+  fbEl.textContent = acertou ? q.fb : q.fbWrong;
+  fbEl.className = 'quiz-fb ' + (acertou ? 'quiz-fb-right' : 'quiz-fb-wrong');
+  document.getElementById('quiz-nxt').style.display = 'inline-block';
+}
+
+function nextQ() {
+  qIdx++;
+  if (qIdx < QS.length) { renderQ(); return; }
+  // resultado
+  document.getElementById('quiz-inner').style.display = 'none';
+  const res = document.getElementById('quiz-result');
+  res.style.display = 'block';
+
+  const msgs = [
+    "Hmm, talvez precise me conhecer um pouco mais 😄",
+    "Quase lá! Mas ainda tem coisa pra descobrir 😊",
+    "Boa! Você me conhece sim 💛",
+    "Você me conhece muito bem 🖤",
+    "Perfeita. Me conhece melhor que eu mesmo 🥺"
+  ];
+  const mi = Math.round((score / QS.length) * (msgs.length - 1));
+  res.innerHTML = `
+    <p style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold2);margin-bottom:.4rem;">
+      ${score} de ${QS.length} acertos
+    </p>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;opacity:.75;margin-bottom:2rem;">
+      ${msgs[mi]}
+    </p>
+    <div class="cupom">
+      <p class="cupom-eyebrow">vale presente</p>
+      <p class="cupom-title">Cupom de Massagem</p>
+      <p class="cupom-body">Uma sessão completa de relaxamento,<br>resgatável quando e onde você quiser 💆‍♀️</p>
+    </div>
+  `;
+}
+
+renderQ();
+
+// ─── TIMELINE SCROLL REVEAL ───────────────────────────────────
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.tl-item').forEach(el => obs.observe(el));
+
+// ─── BUTTON GAME ─────────────────────────────────────────────
+const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) || window.innerWidth < 768;
+const btnNo = document.getElementById('btn-no');
+
+if (!isMobile) {
+  // Desktop: foge do cursor
+  btnNo.addEventListener('mouseenter', () => {
+    const vw = window.innerWidth, vh = window.innerHeight;
+    const bw = btnNo.offsetWidth + 20, bh = btnNo.offsetHeight + 20;
+    const nx = Math.random() * (vw - bw);
+    const ny = Math.random() * (vh - bh);
+    btnNo.style.position = 'fixed';
+    btnNo.style.left = nx + 'px';
+    btnNo.style.top  = ny + 'px';
+    btnNo.style.zIndex = '200';
+  });
+} else {
+  // Mobile: some e aparece em outro lugar
+  btnNo.addEventListener('touchstart', e => {
+    e.preventDefault();
+    const vw = window.innerWidth, vh = window.innerHeight;
+    const bw = btnNo.offsetWidth + 20, bh = btnNo.offsetHeight + 20;
+    const nx = Math.floor(Math.random() * (vw - bw));
+    const ny = Math.floor(Math.random() * (vh - bh));
+    btnNo.style.position = 'fixed';
+    btnNo.style.left = nx + 'px';
+    btnNo.style.top  = ny + 'px';
+    btnNo.style.zIndex = '200';
+    btnNo.style.opacity = '0';
+    setTimeout(() => { btnNo.style.transition = 'opacity .2s'; btnNo.style.opacity = '1'; }, 50);
+  }, { passive: false });
+}
+
+function gameWin() {
+  document.getElementById('game-btns').style.display = 'none';
+  if (btnNo.style.position === 'fixed') btnNo.style.display = 'none';
+  const win = document.getElementById('game-win');
+  win.style.display = 'block';
+}
+
+// ─── TYPEWRITER ───────────────────────────────────────────────
+function typewrite() {
+  const txt = "Era uma vez dois nomes que se encontraram...";
+  const el = document.getElementById('typewriter');
+  let i = 0;
+  const t = setInterval(() => {
+    el.textContent = txt.slice(0, i);
+    i++;
+    if (i > txt.length) clearInterval(t);
+  }, 65);
+}
+
+// ─── SPLASH ───────────────────────────────────────────────────
+const splash = document.getElementById('splash');
+splash.addEventListener('pointerdown', () => {
+  startMusicWithFade();
+}, { once: true });
+
+splash.addEventListener('click', () => {
+  splash.style.opacity = '0';
+  setTimeout(() => { splash.style.display = 'none'; }, 900);
+  typewrite();
+  startMusicWithFade();
+}, { once: true });
+
+// ─── LOCAL MUSIC ──────────────────────────────────────────────
+const song = document.getElementById('love-song');
+const musicBtn = document.getElementById('music-btn');
+const NORMAL_VOLUME = 0.82;
+let musicStarted = false;
+let muted = false;
+let fadeTimer;
+
+function startMusicWithFade() {
+  if (musicStarted && !song.paused) return;
+  musicStarted = true;
+  clearInterval(fadeTimer);
+  song.volume = 0;
+  song.play().then(() => {
+    let v = 0;
+    fadeTimer = setInterval(() => {
+      v = Math.min(v + 0.02, NORMAL_VOLUME);
+      song.volume = v;
+      if (v >= NORMAL_VOLUME) clearInterval(fadeTimer);
+    }, 120);
+  }).catch(() => {
+    musicStarted = false;
+  });
+}
+
+musicBtn.addEventListener('click', () => {
+  if (!musicStarted || song.paused) {
+    muted = false;
+    song.muted = false;
+    musicBtn.textContent = '♪';
+    startMusicWithFade();
+    return;
+  }
+
+  muted = !muted;
+  song.muted = muted;
+  musicBtn.textContent = muted ? '♩' : '♪';
+});
+</script>
+</body>
+</html>
