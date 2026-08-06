@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia Black Power | Centro - Campo Grande, MS</title>
+    
+    <!-- Google Fonts: Oswald para títulos (impacto) e Inter para textos (leitura) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        oswald: ['Oswald', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f0f0f',
+                            gray: '#1a1a1a',
+                            light: '#f4f4f4',
+                            accent: '#d4af37', // Dourado sutil para estrelas e detalhes
+                            whatsapp: '#25D366',
+                            instagram: '#E1306C'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Estilos adicionais para efeitos sutis */
+        .bg-hero-pattern {
+            background-color: #0f0f0f;
+            background-image: linear-gradient(rgba(15, 15, 15, 0.85), rgba(15, 15, 15, 0.95)), url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .glass-card {
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-brand-light font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Navbar Simples -->
+    <nav class="absolute w-full z-10 py-6 px-4">
+        <div class="max-w-6xl mx-auto flex justify-center md:justify-between items-center">
+            <!-- Espaço reservado para a Logo -->
+            <div class="flex flex-col items-center">
+                <div class="w-24 h-24 bg-black rounded-full flex items-center justify-center shadow-lg border-2 border-gray-600 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80&sat=-100" alt="Logo Barbearia Black Power" class="w-full h-full object-cover">
+                </div>
+            </div>
+            
+            <div class="hidden md:flex space-x-6 text-sm font-semibold tracking-wider uppercase">
+                <a href="#servicos" class="hover:text-brand-accent transition">Serviços</a>
+                <a href="#avaliacoes" class="hover:text-brand-accent transition">Avaliações</a>
+                <a href="#localizacao" class="hover:text-brand-accent transition">Localização</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-hero-pattern min-h-[85vh] flex items-center justify-center px-4 pt-20 relative">
+        <div class="max-w-4xl mx-auto text-center z-10 mt-10">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-gray border border-gray-700 mb-6 text-sm">
+                <i class="fa-solid fa-star text-brand-accent"></i>
+                <span class="font-medium text-gray-300">Avaliação 4.9 no Google (100+ avaliações)</span>
+            </div>
+            
+            <h1 class="font-oswald text-5xl md:text-7xl font-bold mb-4 tracking-tight uppercase">
+                Barbearia <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-500">Black Power</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+                Experiência, estilo e preço justo no coração de Campo Grande. Com o barbeiro Deyvid Renato, seu visual está em boas mãos.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#" class="w-full sm:w-auto bg-brand-whatsapp hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full transition transform hover:scale-105 flex items-center justify-center gap-3 shadow-lg shadow-green-900/50">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    <span>Agendar Horário</span>
+                </a>
+                <a href="https://instagram.com/black.power_barbearia" target="_blank" class="w-full sm:w-auto bg-transparent border-2 border-gray-600 hover:border-brand-instagram hover:text-brand-instagram text-white font-bold py-4 px-8 rounded-full transition flex items-center justify-center gap-3">
+                    <i class="fa-brands fa-instagram text-2xl"></i>
+                    <span>Ver Trabalhos</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Gradient overlay botton -->
+        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-brand-dark to-transparent"></div>
+    </header>
+
+    <!-- Serviços -->
+    <section id="servicos" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-oswald text-3xl md:text-5xl font-bold uppercase mb-4">Nossos Serviços</h2>
+                <p class="text-gray-400">Atendimento prático, rápido e com excelência.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card Serviço 1 -->
+                <div class="glass-card p-8 rounded-2xl text-center hover:border-gray-500 transition cursor-pointer group">
+                    <div class="w-16 h-16 mx-auto bg-gray-800 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-scissors text-2xl text-gray-300"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 font-oswald uppercase text-white">Corte Masculino</h3>
+                    <p class="text-gray-400 text-sm mb-6">Corte moderno ou clássico, do jeito que você pedir, com finalização impecável.</p>
+                    <button class="text-sm font-semibold text-brand-whatsapp flex items-center justify-center gap-2 w-full">
+                        Consultar Valor <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+                
+                <!-- Card Serviço 2 -->
+                <div class="glass-card p-8 rounded-2xl text-center hover:border-gray-500 transition cursor-pointer group">
+                    <div class="w-16 h-16 mx-auto bg-gray-800 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-razor text-2xl text-gray-300"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 font-oswald uppercase text-white">Barba</h3>
+                    <p class="text-gray-400 text-sm mb-6">Alinhamento, toalha quente e produtos de qualidade para o cuidado da sua barba.</p>
+                    <button class="text-sm font-semibold text-brand-whatsapp flex items-center justify-center gap-2 w-full">
+                        Consultar Valor <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Card Serviço 3 -->
+                <div class="glass-card p-8 rounded-2xl text-center border-brand-accent/30 hover:border-brand-accent transition cursor-pointer group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-brand-accent text-brand-dark text-xs font-bold px-3 py-1 rounded-bl-lg">MAIS PEDIDO</div>
+                    <div class="w-16 h-16 mx-auto bg-gray-800 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-user-tie text-2xl text-brand-accent"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 font-oswald uppercase text-white">Corte + Barba</h3>
+                    <p class="text-gray-400 text-sm mb-6">O pacote completo para renovar o visual com um ótimo custo-benefício.</p>
+                    <button class="text-sm font-semibold text-brand-whatsapp flex items-center justify-center gap-2 w-full">
+                        Consultar Valor <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prova Social (Confiança) -->
+    <section id="avaliacoes" class="py-20 px-4 bg-brand-gray">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between mb-12">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <h2 class="font-oswald text-3xl md:text-5xl font-bold uppercase mb-4">Aprovado pelos Clientes</h2>
+                    <p class="text-gray-400">Veja o que dizem sobre nosso trabalho no Google Maps.</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold font-oswald text-white mb-2">4,9</div>
+                    <div class="flex gap-1 text-brand-accent text-xl mb-1 justify-center">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-sm text-gray-500">Mais de 100 avaliações</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Review 1 -->
+                <div class="bg-brand-dark p-6 rounded-2xl border border-gray-800 flex flex-col justify-between">
+                    <div>
+                        <div class="flex gap-1 text-brand-accent text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 italic mb-6">"Meu filho e eu estamos pela segunda vez na Black Power, gostamos bastante do cuidado e talento do profissional. Barbearia bem localizada, em frente a histórica Igreja Santo Antônio..."</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-gray-400 font-bold">C</div>
+                        <div>
+                            <p class="font-bold text-sm">Christian Vieira</p>
+                            <p class="text-xs text-gray-500">Local Guide</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-brand-dark p-6 rounded-2xl border border-gray-800 flex flex-col justify-between">
+                    <div>
+                        <div class="flex gap-1 text-brand-accent text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 italic mb-6">"Barbeiro experiente e moderno, faz como o pedido e rápido, preço justo."</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-gray-400 font-bold">R</div>
+                        <div>
+                            <p class="font-bold text-sm">Rogerio Carmo</p>
+                            <p class="text-xs text-gray-500">Local Guide</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-brand-dark p-6 rounded-2xl border border-gray-800 flex flex-col justify-between md:hidden lg:flex">
+                    <div>
+                        <div class="flex gap-1 text-brand-accent text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 italic mb-6">"Excelente atendimento. Prático, profissional e muito atencioso! Recomendo!!!"</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-gray-400 font-bold">J</div>
+                        <div>
+                            <p class="font-bold text-sm">Jose Augusto</p>
+                            <p class="text-xs text-gray-500">Local Guide</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bloco de Atendimento Rápido e Informações -->
+    <section id="localizacao" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12">
+            
+            <!-- Informações / Horários -->
+            <div class="lg:w-1/2 space-y-8">
+                <div>
+                    <h2 class="font-oswald text-3xl font-bold uppercase mb-2">Visite Nossa Barbearia</h2>
+                    <p class="text-gray-400">Em frente à histórica Igreja Santo Antônio.</p>
+                </div>
+
+                <div class="flex gap-4 items-start">
+                    <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-location-dot text-brand-accent text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">Endereço</h4>
+                        <p class="text-gray-400 text-sm">R. Tv. Lydia Baís - Centro<br>Campo Grande - MS, 79002-070</p>
+                        <a href="https://maps.app.goo.gl/1dmq7yxmwrEoVmbCA" target="_blank" class="inline-block mt-2 text-sm text-brand-whatsapp hover:underline font-medium">Abrir no Google Maps &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 items-start">
+                    <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-clock text-brand-accent text-xl"></i>
+                    </div>
+                    <div class="w-full max-w-sm">
+                        <h4 class="font-bold text-lg mb-3">Horário de Funcionamento</h4>
+                        <ul class="text-gray-400 text-sm space-y-2">
+                            <li class="flex justify-between border-b border-gray-800 pb-1"><span>Segunda a Sexta</span> <span>08:00 - 17:30</span></li>
+                            <li class="flex justify-between border-b border-gray-800 pb-1"><span>Sábado</span> <span>08:30 - 14:00</span></li>
+                            <li class="flex justify-between text-gray-500 pt-1"><span>Domingo</span> <span>Fechado</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dúvidas Rápidas (FAQ / CTA) -->
+            <div class="lg:w-1/2 bg-brand-gray p-8 rounded-3xl border border-gray-800">
+                <h3 class="font-oswald text-2xl font-bold uppercase mb-6 text-center">Atendimento Rápido</h3>
+                
+                <div class="space-y-4">
+                    <a href="#" class="flex items-center justify-between p-4 bg-brand-dark rounded-xl hover:bg-gray-800 transition border border-transparent hover:border-gray-600 group">
+                        <div class="flex items-center gap-4">
+                            <i class="fa-brands fa-whatsapp text-2xl text-brand-whatsapp"></i>
+                            <span class="font-medium text-gray-200">Qual o valor do corte?</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-600 group-hover:text-white transition"></i>
+                    </a>
+                    
+                    <a href="#" class="flex items-center justify-between p-4 bg-brand-dark rounded-xl hover:bg-gray-800 transition border border-transparent hover:border-gray-600 group">
+                        <div class="flex items-center gap-4">
+                            <i class="fa-brands fa-whatsapp text-2xl text-brand-whatsapp"></i>
+                            <span class="font-medium text-gray-200">Tem horário pra hoje?</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-600 group-hover:text-white transition"></i>
+                    </a>
+
+                    <a href="#" class="flex items-center justify-between p-4 bg-brand-dark rounded-xl hover:bg-gray-800 transition border border-transparent hover:border-gray-600 group">
+                        <div class="flex items-center gap-4">
+                            <i class="fa-solid fa-map-location-dot text-2xl text-blue-400"></i>
+                            <span class="font-medium text-gray-200">Me mande a localização</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-600 group-hover:text-white transition"></i>
+                    </a>
+                </div>
+
+                <div class="mt-8 text-center">
+                    <p class="text-sm text-gray-400 mb-4">Prefere tirar dúvidas pelo Instagram?</p>
+                    <a href="https://instagram.com/black.power_barbearia" target="_blank" class="inline-flex items-center gap-2 text-brand-instagram font-bold hover:opacity-80 transition">
+                        <i class="fa-brands fa-instagram text-xl"></i> @black.power_barbearia
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-8 mt-auto border-t border-gray-900">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+            <div>
+                <span class="font-oswald font-bold text-xl tracking-wider">BLACK POWER</span>
+                <p class="text-gray-600 text-xs mt-1">&copy; 2026 Barbearia Black Power. Todos os direitos reservados.</p>
+            </div>
+            
+            <div class="flex gap-4 text-gray-400">
+                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-whatsapp text-xl"></i></a>
+                <a href="https://instagram.com/black.power_barbearia" class="hover:text-white transition"><i class="fa-brands fa-instagram text-xl"></i></a>
+            </div>
+        </div>
+        
+        <!-- Rótulo Obrigatório -->
+        <div class="mt-8 bg-yellow-900/20 py-2 text-center border-t border-yellow-700/30">
+            <p class="text-yellow-600 text-xs font-semibold tracking-widest uppercase opacity-70">
+                Prévia demonstrativa - página não oficial
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
