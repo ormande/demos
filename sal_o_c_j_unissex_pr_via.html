@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salão e Barbearia C&J Unissex | Campo Grande - MS</title>
+    
+    <!-- Google Fonts: Quicksand e Nunito para um visual amigável, arredondado e familiar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                        display: ['Quicksand', 'sans-serif'],
+                    },
+                    colors: {
+                        cj: {
+                            blue: '#0284c7', // sky-600 (Confiança, Calma - bom para crianças)
+                            bluelight: '#e0f2fe', // sky-100
+                            orange: '#f97316', // orange-500 (Alegria, Acolhimento)
+                            orangelight: '#ffedd5', // orange-100
+                            whatsapp: '#25D366',
+                            instagram: '#E1306C'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Padrão de fundo amigável e suave */
+        .bg-pattern {
+            background-color: #f8fafc;
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        
+        .hero-image {
+            background-color: #0284c7;
+            background-image: linear-gradient(rgba(2, 132, 199, 0.85), rgba(2, 132, 199, 0.95)), url('https://images.unsplash.com/photo-1595861173250-93c35fcb8882?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        }
+    </style>
+</head>
+<body class="bg-pattern text-slate-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            
+            <!-- Logo (Espaço Reservado) -->
+            <div class="flex items-center gap-3">
+                <div class="w-14 h-14 bg-cj-bluelight rounded-full flex items-center justify-center border-2 border-cj-blue text-cj-blue shadow-sm overflow-hidden">
+                    <!-- Ícone genérico representando a logo do salão -->
+                    <i class="fa-solid fa-scissors text-xl"></i>
+                </div>
+                <div class="hidden sm:block">
+                    <h1 class="font-display font-bold text-lg text-slate-800 leading-tight">Salão C&J</h1>
+                    <span class="text-xs text-slate-500 font-semibold tracking-wide uppercase">Unissex</span>
+                </div>
+            </div>
+            
+            <!-- Redes Sociais e CTA -->
+            <div class="flex items-center gap-4">
+                <a href="https://instagram.com/salao_cj_unissex" target="_blank" class="text-slate-400 hover:text-cj-instagram transition text-2xl" title="Siga no Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/5567992438891?text=Olá! Vim pelo site e gostaria de agendar um horário." target="_blank" class="bg-cj-blue hover:bg-sky-700 text-white font-bold py-2 px-5 rounded-full transition shadow-md flex items-center gap-2 text-sm">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span class="hidden sm:inline">Agendar Horário</span>
+                    <span class="sm:hidden">Agendar</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-image min-h-[75vh] flex items-center justify-center px-4 py-20 relative text-center">
+        <div class="max-w-3xl mx-auto z-10 relative">
+            
+            <!-- Badge de Avaliação -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-8 backdrop-blur-sm text-sm text-white font-medium shadow-lg">
+                <div class="flex text-cj-yellow text-xs">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <span>4.9 no Google (Especialistas em crianças)</span>
+            </div>
+            
+            <h2 class="font-display text-4xl md:text-6xl font-extrabold mb-6 text-white leading-tight">
+                Cuidado e paciência para <span class="text-cj-yellow">toda a família</span>
+            </h2>
+            
+            <p class="text-lg md:text-xl text-sky-100 mb-10 font-medium leading-relaxed max-w-2xl mx-auto">
+                Do primeiro corte do seu bebê ao seu visual do dia a dia. Um ambiente simples, acolhedor e com profissionais que amam o que fazem!
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://wa.me/5567992438891?text=Olá! Gostaria de agendar um corte." target="_blank" class="w-full sm:w-auto bg-cj-whatsapp hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full transition transform hover:-translate-y-1 flex items-center justify-center gap-3 shadow-lg text-lg">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    Falar no WhatsApp
+                </a>
+                <a href="#endereco" class="w-full sm:w-auto bg-white/20 hover:bg-white/30 backdrop-blur-md text-white font-bold py-4 px-8 rounded-full transition flex items-center justify-center gap-3 border border-white/30 text-lg">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Ver Endereço
+                </a>
+            </div>
+        </div>
+        
+        <!-- Ondinha Decorativa no final do Hero -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+            <svg class="relative block w-full h-[50px] md:h-[80px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.21,192.39,101.44,243.68,86.53,289.4,70.35,321.39,56.44Z" fill="#f8fafc"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Serviços -->
+    <section class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h3 class="font-display text-3xl md:text-4xl font-bold mb-4 text-slate-800">Serviços para todos</h3>
+                <div class="w-16 h-1.5 bg-cj-orange mx-auto rounded-full mb-4"></div>
+                <p class="text-slate-600 text-lg">Atendimento unissex com foco no bem-estar de cada cliente.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Serviço 1 (Destaque Infantil) -->
+                <div class="bg-white rounded-3xl p-8 text-center card-shadow border-t-4 border-cj-blue relative transform transition hover:-translate-y-2">
+                    <div class="w-20 h-20 bg-cj-bluelight text-cj-blue rounded-full flex items-center justify-center mx-auto mb-6 text-3xl">
+                        <i class="fa-solid fa-child-reaching"></i>
+                    </div>
+                    <h4 class="text-2xl font-display font-bold mb-3 text-slate-800">Corte Infantil</h4>
+                    <p class="text-slate-600 mb-6 leading-relaxed">Nossa especialidade! Muita paciência, brincadeira e carinho para o primeiro corte (ou os próximos) sem choro.</p>
+                    <a href="https://wa.me/5567992438891?text=Olá! Gostaria de agendar um corte infantil." target="_blank" class="inline-block bg-cj-bluelight hover:bg-cj-blue hover:text-white text-cj-blue font-bold px-6 py-2.5 rounded-full transition w-full">
+                        Agendar Infantil
+                    </a>
+                </div>
+                
+                <!-- Serviço 2 -->
+                <div class="bg-white rounded-3xl p-8 text-center card-shadow border-t-4 border-slate-700 relative transform transition hover:-translate-y-2">
+                    <div class="w-20 h-20 bg-slate-100 text-slate-700 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <h4 class="text-2xl font-display font-bold mb-3 text-slate-800">Barbearia Clássica</h4>
+                    <p class="text-slate-600 mb-6 leading-relaxed">Cortes tradicionais, modernos e barba alinhada com a excelência e experiência do Sr. Cláudio.</p>
+                    <a href="https://wa.me/5567992438891?text=Olá! Gostaria de agendar cabelo/barba adulto." target="_blank" class="inline-block bg-slate-100 hover:bg-slate-700 hover:text-white text-slate-700 font-bold px-6 py-2.5 rounded-full transition w-full">
+                        Agendar Adulto
+                    </a>
+                </div>
+
+                <!-- Serviço 3 -->
+                <div class="bg-white rounded-3xl p-8 text-center card-shadow border-t-4 border-cj-orange relative transform transition hover:-translate-y-2">
+                    <div class="w-20 h-20 bg-cj-orangelight text-cj-orange rounded-full flex items-center justify-center mx-auto mb-6 text-3xl">
+                        <i class="fa-solid fa-scissors"></i>
+                    </div>
+                    <h4 class="text-2xl font-display font-bold mb-3 text-slate-800">Salão Unissex</h4>
+                    <p class="text-slate-600 mb-6 leading-relaxed">Cortes e cuidados gerais para o público feminino. Um ambiente familiar onde todos são bem-vindos.</p>
+                    <a href="https://wa.me/5567992438891?text=Olá! Gostaria de ver os serviços de salão." target="_blank" class="inline-block bg-cj-orangelight hover:bg-cj-orange hover:text-white text-cj-orange font-bold px-6 py-2.5 rounded-full transition w-full">
+                        Consultar Serviços
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prova Social (Avaliações Reais) -->
+    <section class="py-20 px-4 bg-white relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                
+                <div class="lg:w-1/3 text-center lg:text-left">
+                    <h3 class="font-display text-3xl md:text-4xl font-bold mb-4 text-slate-800">O que as mamães dizem</h3>
+                    <p class="text-slate-600 mb-8 text-lg">Nosso maior orgulho é deixar as crianças à vontade e os pais tranquilos. Veja as avaliações no Google!</p>
+                    
+                    <a href="https://maps.app.goo.gl/3A741YV9b5kUfT8k8" target="_blank" class="inline-flex items-center gap-3 bg-white border border-slate-200 shadow-sm hover:shadow-md px-6 py-3 rounded-full transition text-slate-700 font-bold">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" class="w-5 h-5">
+                        Ver todas as avaliações
+                    </a>
+                </div>
+
+                <div class="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Avaliação 1 -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm relative">
+                        <div class="text-cj-yellow mb-3 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-slate-700 italic mb-4 text-sm leading-relaxed">"Atendimento mil!! Levei meu filho para o primeiro corte, adorei e voltarei. O lugar é simples e acolhedor."</p>
+                        <div class="flex items-center gap-3 mt-auto">
+                            <div class="w-10 h-10 bg-cj-blue text-white rounded-full flex items-center justify-center font-bold">L</div>
+                            <div>
+                                <p class="font-bold text-slate-800 text-sm">Lívia G. S. Magalhães</p>
+                                <p class="text-xs text-slate-500">Mãe do João</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Avaliação 2 -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm relative">
+                        <div class="text-cj-yellow mb-3 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-slate-700 italic mb-4 text-sm leading-relaxed">"Meu filho ficou super confortável e o Sr Claudio foi super atencioso. Pesquisei no Google salão para cortar cabelo infantil, e fui neste."</p>
+                        <div class="flex items-center gap-3 mt-auto">
+                            <div class="w-10 h-10 bg-cj-orange text-white rounded-full flex items-center justify-center font-bold">B</div>
+                            <div>
+                                <p class="font-bold text-slate-800 text-sm">Bruna de Sá</p>
+                                <p class="text-xs text-slate-500">Mãe do Leo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Localização e FAQ -->
+    <section id="endereco" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12">
+            
+            <!-- Endereço -->
+            <div class="lg:w-1/2 bg-white p-8 md:p-10 rounded-3xl card-shadow">
+                <h3 class="font-display text-3xl font-bold mb-8 text-slate-800">Venha nos visitar</h3>
+                
+                <div class="flex gap-4 items-start mb-8">
+                    <div class="w-12 h-12 rounded-full bg-cj-orangelight text-cj-orange flex items-center justify-center shrink-0 text-xl">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-slate-800 mb-1">Nosso Endereço</h4>
+                        <p class="text-slate-600 leading-relaxed text-sm">R. Treze de Maio, 1829 - Centro<br>Campo Grande - MS, 79002-350<br><span class="text-slate-400 text-xs">(Após a Av. Fernando Correia da Costa)</span></p>
+                        <a href="https://maps.app.goo.gl/3A741YV9b5kUfT8k8" target="_blank" class="inline-flex items-center gap-2 mt-3 text-sm text-cj-blue font-bold hover:underline">
+                            Abrir no Mapa <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 items-start">
+                    <div class="w-12 h-12 rounded-full bg-cj-bluelight text-cj-blue flex items-center justify-center shrink-0 text-xl">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <div class="w-full">
+                        <h4 class="font-bold text-lg text-slate-800 mb-3">Horário de Funcionamento</h4>
+                        <ul class="text-slate-600 text-sm space-y-2">
+                            <li class="flex justify-between border-b border-slate-100 pb-2"><span>Seg a Sex</span> <span class="font-bold text-slate-800">07:20 às 18:00</span></li>
+                            <li class="flex justify-between border-b border-slate-100 pb-2"><span>Sábado</span> <span class="font-bold text-slate-800">08:00 às 12:30</span></li>
+                            <li class="flex justify-between text-slate-400 pt-1"><span>Domingo</span> <span>Fechado</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dúvidas Rápidas (Atendimento Rápido) -->
+            <div class="lg:w-1/2">
+                <div class="mb-6">
+                    <h3 class="font-display text-3xl font-bold text-slate-800 mb-2">Atendimento Rápido</h3>
+                    <p class="text-slate-600">Clique na sua dúvida e fale direto conosco pelo WhatsApp.</p>
+                </div>
+                
+                <div class="space-y-3">
+                    <a href="https://wa.me/5567992438891?text=Olá! Tem horário para hoje?" target="_blank" class="block bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-cj-blue hover:shadow-md transition group">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-cj-bluelight text-cj-blue flex items-center justify-center group-hover:bg-cj-blue group-hover:text-white transition">
+                                    <i class="fa-regular fa-calendar-check"></i>
+                                </div>
+                                <span class="font-bold text-slate-700">Tem horário disponível para hoje?</span>
+                            </div>
+                            <i class="fa-brands fa-whatsapp text-xl text-slate-300 group-hover:text-cj-whatsapp transition"></i>
+                        </div>
+                    </a>
+
+                    <a href="https://wa.me/5567992438891?text=Olá! Como funciona o corte infantil? Meu filho chora muito." target="_blank" class="block bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-cj-orange hover:shadow-md transition group">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-cj-orangelight text-cj-orange flex items-center justify-center group-hover:bg-cj-orange group-hover:text-white transition">
+                                    <i class="fa-solid fa-baby"></i>
+                                </div>
+                                <span class="font-bold text-slate-700">Como lidar com crianças no primeiro corte?</span>
+                            </div>
+                            <i class="fa-brands fa-whatsapp text-xl text-slate-300 group-hover:text-cj-whatsapp transition"></i>
+                        </div>
+                    </a>
+
+                    <a href="https://wa.me/5567992438891?text=Olá! Gostaria de consultar os valores dos cortes." target="_blank" class="block bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-cj-blue hover:shadow-md transition group">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center group-hover:bg-slate-600 group-hover:text-white transition">
+                                    <i class="fa-solid fa-tag"></i>
+                                </div>
+                                <span class="font-bold text-slate-700">Quais são os valores dos serviços?</span>
+                            </div>
+                            <i class="fa-brands fa-whatsapp text-xl text-slate-300 group-hover:text-cj-whatsapp transition"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 pt-16 pb-8 mt-auto rounded-t-[2.5rem]">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left mb-12">
+            
+            <div>
+                <div class="flex items-center gap-3 justify-center md:justify-start mb-3">
+                    <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-white">
+                        <i class="fa-solid fa-scissors"></i>
+                    </div>
+                    <span class="font-display font-bold text-2xl text-white">Salão C&J Unissex</span>
+                </div>
+                <p class="text-slate-400 text-sm max-w-sm">Cuidando do seu visual e da sua família com todo carinho no centro de Campo Grande.</p>
+            </div>
+            
+            <div class="flex gap-4">
+                <a href="https://wa.me/5567992438891" target="_blank" class="w-12 h-12 rounded-full bg-white/5 hover:bg-cj-whatsapp text-white flex items-center justify-center transition text-xl border border-white/10">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="https://instagram.com/salao_cj_unissex" target="_blank" class="w-12 h-12 rounded-full bg-white/5 hover:bg-cj-instagram text-white flex items-center justify-center transition text-xl border border-white/10">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="border-t border-white/10 pt-8 max-w-6xl mx-auto px-4 text-center">
+            <p class="text-slate-500 text-sm mb-2">© 2026 Salão e Barbearia C&J Unissex.</p>
+            <p class="text-slate-600 text-xs font-bold tracking-widest uppercase bg-black/20 inline-block px-4 py-2 rounded-lg">
+                Prévia demonstrativa - página não oficial
+            </p>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante WhatsApp -->
+    <a href="https://wa.me/5567992438891?text=Olá! Vim pelo site e gostaria de tirar uma dúvida." target="_blank" class="fixed bottom-6 right-6 w-16 h-16 bg-cj-whatsapp text-white rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition z-50">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
