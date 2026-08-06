@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia Domteles | Moreninha, Campo Grande - MS</title>
+    
+    <!-- Fontes: Playfair Display para títulos (elegância editorial) e DM Sans para textos (limpeza e leitura) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"DM Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            coffee: '#1a1815', /* Fundo principal escuro quente */
+                            mocha: '#26231e',  /* Fundo secundário (cards) */
+                            sand: '#e8e2d5',   /* Textos claros e suaves */
+                            gold: '#c29d6d',   /* Dourado envelhecido para botões e detalhes */
+                            border: '#3d3830', /* Linhas e divisórias */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #1a1815;
+            color: #e8e2d5;
+        }
+
+        /* Hero Image com Overlay Escuro e Quente */
+        .hero-bg {
+            background-image: linear-gradient(to right, rgba(26, 24, 21, 0.95) 0%, rgba(26, 24, 21, 0.8) 50%, rgba(26, 24, 21, 0.4) 100%), 
+                              url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center 30%;
+        }
+
+        /* Animações Fluidas (Fade Up) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Linha decorativa fina e elegante (Eyebrow) */
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: #a8a092;
+            margin-bottom: 1.5rem;
+        }
+        .eyebrow::before {
+            content: "";
+            width: 40px;
+            height: 1px;
+            background-color: #c29d6d;
+        }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen selection:bg-brand-gold selection:text-brand-coffee">
+
+    <!-- Navbar (Sem links de Instagram, focada em reserva) -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-brand-coffee/95 backdrop-blur-md border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            
+            <!-- Logo Tipográfica -->
+            <a href="#" class="flex items-center gap-4 group">
+                <div class="w-10 h-10 border border-brand-gold rounded-full flex items-center justify-center group-hover:bg-brand-gold transition-colors duration-500">
+                    <span class="font-serif font-bold text-lg text-brand-gold group-hover:text-brand-coffee transition-colors duration-500">DT</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif font-bold text-lg text-white leading-none tracking-wider">DOMTELES</span>
+                    <span class="text-[0.55rem] text-brand-gold tracking-[0.3em] uppercase mt-1">Barbearia</span>
+                </div>
+            </a>
+            
+            <!-- CTA Direito -->
+            <a href="https://wa.me/5567992762644?text=Olá! Gostaria de agendar um horário." target="_blank" class="hidden sm:flex items-center gap-2 bg-transparent text-brand-sand hover:text-white px-4 py-2 font-sans font-bold text-[0.7rem] tracking-[0.15em] uppercase transition-all duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-brand-gold after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-right hover:after:origin-left">
+                Agendar Horário <i class="fa-solid fa-arrow-right text-brand-gold ml-1"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg min-h-[90vh] flex items-center pt-20 relative">
+        <div class="max-w-7xl mx-auto w-full z-10 px-6 reveal">
+            
+            <div class="max-w-2xl">
+                <div class="eyebrow">Moreninha • Campo Grande</div>
+                
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-[5.5rem] font-medium mb-6 text-white leading-[1.05] tracking-tight">
+                    Maestria em <br>
+                    <span class="italic text-brand-gold">cada detalhe.</span>
+                </h1>
+                
+                <p class="text-base md:text-lg text-brand-sand/80 mb-10 font-sans max-w-lg leading-relaxed font-light">
+                    O verdadeiro corte executado com perfeição. Um ambiente limpo, inclusivo e preparado para destacar o que você tem de melhor.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-8">
+                    <a href="https://wa.me/5567992762644?text=Olá, Teles! Gostaria de agendar um horário." target="_blank" class="w-full sm:w-auto bg-brand-gold hover:bg-white text-brand-coffee font-bold py-4 px-10 transition-colors duration-300 text-xs tracking-[0.2em] uppercase text-center">
+                        Reservar Horário
+                    </a>
+                    
+                    <div class="flex flex-col items-center sm:items-start justify-center pt-2">
+                        <div class="flex text-brand-gold text-sm mb-1 gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="text-xs text-brand-sand/60 font-sans tracking-wide">5.0 (30 avaliações)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Diferenciais / Serviços (Layout Editorial) -->
+    <section class="py-24 px-6 bg-brand-coffee">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-end mb-20 reveal">
+                <div class="lg:col-span-7">
+                    <div class="eyebrow">A Experiência Domteles</div>
+                    <h2 class="font-serif text-4xl md:text-5xl font-medium text-white tracking-tight">
+                        Cuidado, respeito e <br>um ambiente impecável.
+                    </h2>
+                </div>
+                <div class="lg:col-span-5">
+                    <p class="text-brand-sand/70 font-sans leading-relaxed text-sm md:text-base border-l border-brand-gold pl-6">
+                        Aqui, acreditamos que a barbearia é um espaço para todos. Acolhemos a diversidade com respeito e entregamos excelência técnica, com equipamentos sempre higienizados e muito conforto.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-brand-mocha p-10 md:p-12 hover:bg-brand-border/40 transition duration-500 reveal delay-100 group">
+                    <div class="text-brand-gold text-2xl mb-8 font-serif italic">01.</div>
+                    <h3 class="text-2xl font-serif font-medium mb-4 text-white">Corte com Perfeição</h3>
+                    <p class="text-brand-sand/60 text-sm leading-relaxed mb-8">Técnicas atualizadas e tesoura afiada. Entendemos o formato do seu rosto para entregar um resultado que valoriza seus traços naturais.</p>
+                    <div class="w-full h-[1px] bg-brand-border group-hover:bg-brand-gold/50 transition-colors"></div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="bg-brand-mocha p-10 md:p-12 hover:bg-brand-border/40 transition duration-500 reveal delay-200 group">
+                    <div class="text-brand-gold text-2xl mb-8 font-serif italic">02.</div>
+                    <h3 class="text-2xl font-serif font-medium mb-4 text-white">Alinhamento de Barba</h3>
+                    <p class="text-brand-sand/60 text-sm leading-relaxed mb-8">Pele bem tratada, toalha e equipamentos esterilizados (sempre bem limpinhos). O cuidado essencial para o homem moderno.</p>
+                    <div class="w-full h-[1px] bg-brand-border group-hover:bg-brand-gold/50 transition-colors"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Atendimento Rápido via WhatsApp -->
+    <section class="py-24 px-6 border-t border-brand-border bg-brand-mocha relative">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            
+            <div class="lg:col-span-5 reveal">
+                <div class="eyebrow">Agilidade</div>
+                <h2 class="font-serif text-3xl md:text-5xl font-medium text-white mb-6 tracking-tight">Sem filas.<br>Sem complicação.</h2>
+                <p class="text-brand-sand/70 mb-10 font-sans leading-relaxed">
+                    Clique nas perguntas ao lado para abrir a conversa com o Teles no WhatsApp com a mensagem já digitada.
+                </p>
+                
+                <div class="flex items-center gap-5">
+                    <div class="w-12 h-12 rounded-full border border-brand-gold flex items-center justify-center text-brand-gold">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-[0.65rem] text-brand-sand/50 uppercase tracking-[0.2em] font-bold mb-1">Contato Direto</p>
+                        <p class="text-white font-sans text-lg tracking-wider">(67) 99276-2644</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lista de links rápidos -->
+            <div class="lg:col-span-7 flex flex-col reveal delay-200">
+                <a href="https://wa.me/5567992762644?text=Olá, Teles! Qual o valor do corte e da barba?" target="_blank" class="group flex items-center justify-between py-6 md:py-8 border-b border-brand-border hover:border-brand-gold transition-colors duration-300">
+                    <span class="text-brand-sand/80 group-hover:text-white font-serif text-xl md:text-2xl transition">Qual o valor dos serviços?</span>
+                    <span class="w-10 h-10 rounded-full border border-brand-border group-hover:border-brand-gold flex items-center justify-center text-brand-gold transition-all duration-300 transform group-hover:scale-110">
+                        <i class="fa-solid fa-arrow-right transform -rotate-45"></i>
+                    </span>
+                </a>
+                
+                <a href="https://wa.me/5567992762644?text=Olá, Teles! Tem algum horário livre para hoje?" target="_blank" class="group flex items-center justify-between py-6 md:py-8 border-b border-brand-border hover:border-brand-gold transition-colors duration-300">
+                    <span class="text-brand-sand/80 group-hover:text-white font-serif text-xl md:text-2xl transition">Tem horário para hoje?</span>
+                    <span class="w-10 h-10 rounded-full border border-brand-border group-hover:border-brand-gold flex items-center justify-center text-brand-gold transition-all duration-300 transform group-hover:scale-110">
+                        <i class="fa-solid fa-arrow-right transform -rotate-45"></i>
+                    </span>
+                </a>
+
+                <a href="https://wa.me/5567992762644?text=Olá! Podem me mandar a localização exata da barbearia?" target="_blank" class="group flex items-center justify-between py-6 md:py-8 border-b border-brand-border hover:border-brand-gold transition-colors duration-300">
+                    <span class="text-brand-sand/80 group-hover:text-white font-serif text-xl md:text-2xl transition">Onde vocês estão localizados?</span>
+                    <span class="w-10 h-10 rounded-full border border-brand-border group-hover:border-brand-gold flex items-center justify-center text-brand-gold transition-all duration-300 transform group-hover:scale-110">
+                        <i class="fa-solid fa-arrow-right transform -rotate-45"></i>
+                    </span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Prova Social (Estilo Editorial) -->
+    <section class="py-24 px-6 bg-brand-coffee">
+        <div class="max-w-6xl mx-auto reveal">
+            <div class="text-center mb-16">
+                <div class="eyebrow justify-center">O que dizem sobre nós</div>
+                <h2 class="font-serif text-3xl md:text-4xl font-medium text-white mb-4">Reconhecimento Real</h2>
+                <div class="flex justify-center text-brand-gold text-sm gap-1 mb-2">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-brand-sand/50 text-xs font-sans tracking-widest uppercase">Baseado em 30 avaliações no Google</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
+                <!-- Review 1 -->
+                <blockquote class="relative">
+                    <i class="fa-solid fa-quote-left absolute -top-4 -left-6 text-4xl text-brand-border/50"></i>
+                    <p class="font-serif text-xl md:text-2xl text-brand-sand leading-relaxed mb-8 relative z-10">
+                        "Melhor barbearia de Cg, atendimento 100%, ambiente super agradável e profissionais que entregam o verdadeiro corte com perfeição!"
+                    </p>
+                    <footer class="flex items-center gap-4 border-t border-brand-border pt-6">
+                        <div class="w-10 h-10 bg-brand-mocha rounded-full flex items-center justify-center font-serif font-bold text-brand-gold">V</div>
+                        <div>
+                            <p class="text-white font-sans font-bold text-sm tracking-wide">Vinicius Valente</p>
+                            <p class="text-brand-sand/50 text-xs font-sans">Cliente</p>
+                        </div>
+                    </footer>
+                </blockquote>
+                
+                <!-- Review 2 -->
+                <blockquote class="relative reveal delay-200">
+                    <i class="fa-solid fa-quote-left absolute -top-4 -left-6 text-4xl text-brand-border/50"></i>
+                    <p class="font-serif text-xl md:text-2xl text-brand-sand leading-relaxed mb-8 relative z-10">
+                        "O atendimento é TOP e o Teles executa o trabalho com maestria. A barbearia é muito aconchegante e o local bem limpinho."
+                    </p>
+                    <footer class="flex items-center gap-4 border-t border-brand-border pt-6">
+                        <div class="w-10 h-10 bg-brand-mocha rounded-full flex items-center justify-center font-serif font-bold text-brand-gold">A</div>
+                        <div>
+                            <p class="text-white font-sans font-bold text-sm tracking-wide">A. Raquel Teles Medeiros</p>
+                            <p class="text-brand-sand/50 text-xs font-sans">Cliente</p>
+                        </div>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- Localização e Infos -->
+    <section class="py-24 px-6 border-t border-brand-border bg-brand-mocha">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <div class="reveal">
+                <div class="eyebrow">Como chegar</div>
+                <h2 class="font-serif text-3xl md:text-4xl font-medium text-white mb-10">Faça-nos uma visita.</h2>
+                
+                <div class="space-y-8 font-sans">
+                    <!-- Endereço -->
+                    <div class="flex gap-5">
+                        <div class="w-10 h-10 rounded-full border border-brand-border flex items-center justify-center text-brand-gold shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <p class="text-[0.65rem] text-brand-sand/50 uppercase tracking-[0.2em] font-bold mb-2">Endereço</p>
+                            <p class="text-white text-sm leading-relaxed">R. Fraiburgo, 545 - Moreninha<br>Campo Grande - MS, 79064-060</p>
+                        </div>
+                    </div>
+
+                    <!-- Horários -->
+                    <div class="flex gap-5">
+                        <div class="w-10 h-10 rounded-full border border-brand-border flex items-center justify-center text-brand-gold shrink-0">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div class="w-full max-w-xs">
+                            <p class="text-[0.65rem] text-brand-sand/50 uppercase tracking-[0.2em] font-bold mb-3">Horários</p>
+                            <ul class="text-sm space-y-3 text-brand-sand/80">
+                                <li class="flex justify-between border-b border-brand-border pb-2">
+                                    <span>Segunda a Sexta</span> <span class="text-white">09:00 - 19:30</span>
+                                </li>
+                                <li class="flex justify-between border-b border-brand-border pb-2">
+                                    <span>Sábado</span> <span class="text-white">08:30 - 19:00</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Domingo</span> <span class="text-brand-gold">Fechado</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="https://maps.app.goo.gl/w13r4cW" target="_blank" class="inline-flex items-center gap-3 mt-10 bg-brand-coffee border border-brand-border hover:border-brand-gold text-white text-xs font-bold uppercase tracking-[0.15em] py-4 px-8 transition-colors duration-300">
+                    Ver rota no mapa <i class="fa-solid fa-arrow-right text-brand-gold"></i>
+                </a>
+            </div>
+
+            <!-- Imagem do Ambiente -->
+            <div class="relative h-[450px] lg:h-[600px] reveal delay-200">
+                <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" alt="Interior moderno de barbearia" class="w-full h-full object-cover grayscale-[20%] sepia-[10%]">
+                
+                <!-- Tag estilo mapa na imagem -->
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-6 py-4 shadow-2xl shadow-black/50 text-center whitespace-nowrap">
+                    <div class="text-brand-coffee text-xl mb-1"><i class="fa-solid fa-location-dot"></i></div>
+                    <span class="font-serif font-bold text-sm text-brand-coffee tracking-wider">DOMTELES</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-coffee pt-20 pb-10 border-t border-brand-border">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 mb-16 items-start">
+            
+            <div>
+                <a href="#" class="flex items-center gap-4 mb-6">
+                    <div class="w-10 h-10 border border-brand-gold rounded-full flex items-center justify-center">
+                        <span class="font-serif font-bold text-lg text-brand-gold">DT</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif font-bold text-lg text-white leading-none tracking-wider">DOMTELES</span>
+                    </div>
+                </a>
+                <p class="text-brand-sand/60 text-sm max-w-sm leading-relaxed">
+                    Um espaço seguro, limpo e profissional, dedicado a entregar maestria em cada corte e alinhamento.
+                </p>
+            </div>
+            
+            <div class="md:text-right">
+                <p class="text-[0.65rem] text-brand-sand/50 uppercase tracking-[0.2em] font-bold mb-3">Fale Conosco</p>
+                <a href="https://wa.me/5567992762644" target="_blank" class="font-serif text-2xl text-white hover:text-brand-gold transition-colors duration-300">
+                    (67) 99276-2644
+                </a>
+            </div>
+            
+        </div>
+        
+        <div class="border-t border-brand-border pt-8 max-w-7xl mx-auto px-6 text-center flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-brand-sand/40 text-xs font-sans tracking-wide">© 2026 Barbearia Domteles. Todos os direitos reservados.</p>
+            <p class="text-brand-border text-[9px] font-bold tracking-[0.25em] uppercase">
+                Prévia demonstrativa - página não oficial
+            </p>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante WhatsApp (Minimalista) -->
+    <a href="https://wa.me/5567992762644?text=Olá, Teles! Gostaria de agendar um horário." target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-brand-gold text-brand-coffee rounded-full flex items-center justify-center text-2xl shadow-xl shadow-black/40 hover:scale-110 hover:bg-white transition-all duration-300 z-50">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Script de Animação de Scroll -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+
+            const revealOnScroll = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                threshold: 0.15, 
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+        });
+    </script>
+</body>
+</html>
