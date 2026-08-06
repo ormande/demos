@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia A Legítima | Campo Grande - MS</title>
+    
+    <!-- Fontes: Montserrat para títulos (imponente/profissional) e Inter para textos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            gold: '#d97706', /* amber-600 */
+                            goldlight: '#f59e0b',
+                            dark: '#0f0f11', /* Quase preto, elegante */
+                            card: '#18181b', /* zinc-900 */
+                            border: '#27272a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #0f0f11;
+            color: #e4e4e7;
+        }
+
+        /* Hero Image com Overlay Escuro e Gradiente */
+        .hero-bg {
+            background-image: linear-gradient(to bottom, rgba(15, 15, 17, 0.4), rgba(15, 15, 17, 1)), 
+                              url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center 30%;
+        }
+
+        /* Animações Fluidas (Fade Up) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Delays para elementos em sequência */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Estilo sutil para Eyebrow (textinhos acima dos títulos) */
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #a1a1aa; /* zinc-400 */
+            margin-bottom: 1rem;
+        }
+        .eyebrow::before {
+            content: "";
+            width: 30px;
+            height: 1px;
+            background-color: #d97706; /* brand gold */
+        }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen selection:bg-brand-gold selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-brand-dark/90 backdrop-blur-md border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-4 group">
+                <div class="w-12 h-12 border-2 border-brand-gold flex items-center justify-center transform rotate-45 group-hover:bg-brand-gold transition-colors duration-500">
+                    <span class="transform -rotate-45 font-display font-bold text-lg text-white">L</span>
+                </div>
+                <div class="hidden sm:block">
+                    <h1 class="font-display font-bold text-lg text-white leading-none tracking-wide">A LEGÍTIMA</h1>
+                    <span class="text-[0.6rem] text-brand-gold font-semibold tracking-[0.2em] uppercase">Barbearia</span>
+                </div>
+            </a>
+            
+            <!-- Redes e CTA -->
+            <div class="flex items-center gap-6">
+                <a href="https://instagram.com/barbeariaalegitima" target="_blank" class="text-zinc-400 hover:text-white transition text-xl">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/5567993125276?text=Olá! Gostaria de agendar um horário." target="_blank" class="hidden sm:flex items-center gap-2 bg-transparent border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-dark px-6 py-2.5 font-bold text-xs tracking-wider uppercase transition-all duration-300">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    Agendar Agora
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg min-h-[90vh] flex items-end pb-24 px-6 relative pt-32">
+        <div class="max-w-7xl mx-auto w-full z-10 reveal">
+            
+            <div class="max-w-3xl">
+                <div class="eyebrow mb-6">Moreninha 2 • Campo Grande</div>
+                
+                <h2 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white leading-[1.05] tracking-tight">
+                    Profissionalismo.<br>
+                    <span class="text-brand-gold">A verdadeira arte.</span>
+                </h2>
+                
+                <p class="text-lg md:text-xl text-zinc-300 mb-10 font-sans max-w-xl leading-relaxed">
+                    O diferencial que você procura. Cordialidade, retidão e um resultado impecável para seu cabelo e barba.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-start gap-6">
+                    <a href="https://wa.me/5567993125276?text=Olá! Vim pelo site e gostaria de agendar um horário." target="_blank" class="w-full sm:w-auto bg-brand-gold hover:bg-brand-goldlight text-brand-dark font-bold py-4 px-8 transition flex items-center justify-center gap-3 text-sm tracking-wider uppercase">
+                        Agendar Horário <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    
+                    <div class="flex items-center gap-3 text-sm text-zinc-400 py-4">
+                        <div class="flex text-brand-gold">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="font-medium text-white">5.0</span>
+                        <span>(31 avaliações)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Especialidades -->
+    <section class="py-24 px-6 border-t border-brand-border bg-brand-dark">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="flex flex-col md:flex-row justify-between items-end gap-8 mb-16 reveal">
+                <div>
+                    <div class="eyebrow">Nossos Serviços</div>
+                    <h3 class="font-display text-3xl md:text-5xl font-bold text-white tracking-tight">Vem pra Legítima.</h3>
+                </div>
+                <p class="text-zinc-400 max-w-sm md:text-right font-sans">
+                    Da régua perfeita ao ensino profissional. Entregamos excelência em cada detalhe.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-brand-card border border-brand-border p-8 hover:border-brand-gold transition duration-300 group reveal delay-100 relative overflow-hidden">
+                    <div class="text-brand-gold text-4xl mb-6 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-transform"><i class="fa-solid fa-scissors"></i></div>
+                    <h4 class="text-xl font-display font-bold mb-3 text-white">Corte</h4>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Cortes modernos e clássicos, degradê na régua e tesoura com precisão absoluta.</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="bg-brand-card border border-brand-border p-8 hover:border-brand-gold transition duration-300 group reveal delay-200 relative overflow-hidden">
+                    <div class="text-brand-gold text-4xl mb-6 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-transform"><i class="fa-solid fa-spray-can"></i></div>
+                    <h4 class="text-xl font-display font-bold mb-3 text-white">Barba</h4>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Alinhamento, toalha quente e cuidados para uma barba de respeito e pele hidratada.</p>
+                </div>
+
+                <!-- Card 3 (Destaque Curso) -->
+                <div class="bg-gradient-to-br from-brand-gold/10 to-transparent border border-brand-gold/50 p-8 hover:border-brand-gold transition duration-300 group reveal delay-300 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-brand-gold text-brand-dark text-xs font-bold px-3 py-1 uppercase tracking-widest">Destaque</div>
+                    <div class="text-brand-gold text-4xl mb-6 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-transform"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h4 class="text-xl font-display font-bold mb-3 text-white">Curso Profissional</h4>
+                    <p class="text-zinc-300 text-sm leading-relaxed mb-6">Aprenda a profissão de barbeiro com quem domina a arte. Aulas práticas e teóricas.</p>
+                    <a href="https://wa.me/5567993125276?text=Olá! Gostaria de informações sobre o Curso Profissional de Barbeiro." target="_blank" class="text-brand-gold text-sm font-bold uppercase tracking-wider group-hover:text-white transition">
+                        Saber mais <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Atendimento Rápido -->
+    <section class="py-24 px-6 border-t border-brand-border bg-brand-card relative overflow-hidden">
+        <!-- Detalhe de fundo geométrico suave -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-brand-gold opacity-[0.02] transform skew-x-12 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <div class="reveal">
+                <div class="eyebrow">Atendimento Direto</div>
+                <h3 class="font-display text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">Sem enrolação.<br>Resolva via WhatsApp.</h3>
+                <p class="text-zinc-400 mb-8 max-w-md text-lg">
+                    Clique na sua dúvida abaixo para abrir a conversa com a nossa equipe com a mensagem já pronta. Simples e rápido.
+                </p>
+                
+                <div class="flex gap-4">
+                    <div class="w-12 h-12 rounded-full border border-zinc-700 flex items-center justify-center text-zinc-500">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-6 h-6 opacity-50 grayscale">
+                    </div>
+                    <div>
+                        <p class="text-xs text-zinc-500 uppercase tracking-widest font-bold mb-1">Contato Direto</p>
+                        <p class="text-white font-mono">(67) 99312-5276</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex flex-col gap-4 reveal delay-200">
+                <a href="https://wa.me/5567993125276?text=Olá! Gostaria de saber os valores do corte e barba." target="_blank" class="group flex items-center justify-between p-6 bg-brand-dark border border-brand-border hover:border-brand-gold transition duration-300">
+                    <span class="text-zinc-300 group-hover:text-white font-medium text-lg transition">Qual o valor dos serviços?</span>
+                    <i class="fa-solid fa-arrow-right text-brand-gold transform group-hover:-rotate-45 transition duration-300"></i>
+                </a>
+                
+                <a href="https://wa.me/5567993125276?text=Olá! Tem horário disponível para hoje?" target="_blank" class="group flex items-center justify-between p-6 bg-brand-dark border border-brand-border hover:border-brand-gold transition duration-300">
+                    <span class="text-zinc-300 group-hover:text-white font-medium text-lg transition">Tem horário para hoje?</span>
+                    <i class="fa-solid fa-arrow-right text-brand-gold transform group-hover:-rotate-45 transition duration-300"></i>
+                </a>
+
+                <a href="https://wa.me/5567993125276?text=Olá! Gostaria de mais detalhes sobre o Curso Profissional de Barbeiro." target="_blank" class="group flex items-center justify-between p-6 bg-brand-dark border border-brand-gold/30 hover:border-brand-gold transition duration-300">
+                    <span class="text-brand-gold group-hover:text-brand-goldlight font-medium text-lg transition">Como funciona o Curso de Barbeiro?</span>
+                    <i class="fa-solid fa-arrow-right text-brand-gold transform group-hover:-rotate-45 transition duration-300"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Prova Social (Google) -->
+    <section class="py-24 px-6 border-t border-brand-border bg-brand-dark">
+        <div class="max-w-7xl mx-auto text-center reveal">
+            <div class="inline-flex items-center gap-3 bg-brand-card border border-brand-border px-6 py-2 rounded-full mb-8">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-5 h-5">
+                <span class="text-white font-bold">Avaliação 5.0</span>
+                <div class="flex text-brand-gold text-sm">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+            </div>
+            
+            <h3 class="font-display text-3xl md:text-4xl font-bold text-white mb-16">O que nossos clientes dizem</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+                <!-- Review 1 -->
+                <div class="bg-brand-card border border-brand-border p-8 reveal delay-100">
+                    <div class="text-brand-gold mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-zinc-300 mb-6 font-sans italic leading-relaxed">"O diferencial dessa barbearia é com certeza o profissionalismo. O atendimento foi excelente, com retidão e cordialidade. Conversando o necessário."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center font-bold text-zinc-500">G</div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Guilherme Bernal</p>
+                            <p class="text-zinc-500 text-xs">Local Guide</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review 2 -->
+                <div class="bg-brand-card border border-brand-border p-8 reveal delay-200">
+                    <div class="text-brand-gold mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-zinc-300 mb-6 font-sans italic leading-relaxed">"Ótimo barbeiro! Cabelo do meu filho e do meu namorado ficaram show!"</p>
+                    <div class="flex items-center gap-4 mt-auto">
+                        <div class="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center font-bold text-zinc-500">A</div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Angelita Aparecida</p>
+                            <p class="text-zinc-500 text-xs">5 avaliações</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-brand-card border border-brand-border p-8 reveal delay-300 md:col-span-2 lg:col-span-1">
+                    <div class="text-brand-gold mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-zinc-300 mb-6 font-sans italic leading-relaxed">"Atendimento excelente, profissionalismo e tanto. Recomendo!"</p>
+                    <div class="flex items-center gap-4 mt-auto">
+                        <div class="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center font-bold text-zinc-500">R</div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Rodrigo Sobrinho</p>
+                            <p class="text-zinc-500 text-xs">Cliente</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Localização -->
+    <section class="py-24 px-6 border-t border-brand-border bg-brand-card">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-5 reveal">
+                <div class="eyebrow">Onde estamos</div>
+                <h3 class="font-display text-3xl md:text-4xl font-bold text-white mb-8">Visite A Legítima</h3>
+                
+                <div class="flex gap-4 mb-8 text-zinc-300">
+                    <i class="fa-solid fa-location-dot text-brand-gold text-xl mt-1"></i>
+                    <div>
+                        <p class="font-bold text-white mb-1">Endereço</p>
+                        <p class="text-sm leading-relaxed text-zinc-400">R. Barreiras, S/N - Sala 5<br>Vila Moreninha II<br>Campo Grande - MS, 79065-203</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 mb-10 text-zinc-300">
+                    <i class="fa-solid fa-clock text-brand-gold text-xl mt-1"></i>
+                    <div class="w-full">
+                        <p class="font-bold text-white mb-3">Horário de Funcionamento</p>
+                        <ul class="text-sm space-y-2 text-zinc-400">
+                            <li class="flex justify-between border-b border-zinc-800 pb-2"><span>Seg a Sáb</span> <span class="text-white">08:00 às 20:00</span></li>
+                            <li class="flex justify-between pt-2"><span>Domingo</span> <span class="text-white">08:00 às 12:00</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <a href="https://maps.app.goo.gl/yTjVd3x1Z5z6KzJp9" target="_blank" class="inline-flex items-center gap-2 text-brand-gold hover:text-brand-goldlight text-sm font-bold uppercase tracking-wider transition">
+                    Ver rota no Google Maps <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Imagem Representativa do Espaço -->
+            <div class="lg:col-span-7 relative h-[400px] lg:h-[500px] reveal delay-200">
+                <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" alt="Interior da Barbearia" class="w-full h-full object-cover grayscale-[30%] opacity-80 border border-brand-border">
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark pt-20 pb-10 border-t border-brand-border mt-auto">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+            
+            <div>
+                <a href="#" class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 border border-brand-gold flex items-center justify-center transform rotate-45">
+                        <span class="transform -rotate-45 font-display font-bold text-sm text-white">L</span>
+                    </div>
+                    <span class="font-display font-bold text-xl text-white tracking-wide">A LEGÍTIMA</span>
+                </a>
+                <p class="text-zinc-500 text-sm max-w-xs">
+                    Excelência, tradição e ensino profissional em barbearia. O seu visual na régua nas Moreninhas.
+                </p>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Contato</h4>
+                <ul class="space-y-3 text-sm text-zinc-400">
+                    <li><a href="https://wa.me/5567993125276" target="_blank" class="hover:text-brand-gold transition">WhatsApp: (67) 99312-5276</a></li>
+                    <li><a href="https://instagram.com/barbeariaalegitima" target="_blank" class="hover:text-brand-gold transition">Instagram: @barbeariaalegitima</a></li>
+                </ul>
+            </div>
+            
+            <div class="flex items-start md:justify-end">
+                <a href="https://wa.me/5567993125276?text=Olá! Vim pelo site." target="_blank" class="w-12 h-12 rounded-full border border-zinc-700 hover:border-brand-gold text-zinc-400 hover:text-brand-gold flex items-center justify-center transition duration-300 text-xl">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="border-t border-zinc-800/50 pt-8 max-w-7xl mx-auto px-6 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-zinc-600 text-xs tracking-wider">© 2026 Barbearia A Legítima. Todos os direitos reservados.</p>
+            <p class="text-zinc-500 text-[10px] font-bold tracking-[0.2em] uppercase">
+                Prévia demonstrativa - página não oficial
+            </p>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante WhatsApp (Discreto mas efetivo) -->
+    <a href="https://wa.me/5567993125276?text=Olá! Vim pelo site e gostaria de agendar um horário." target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-brand-gold text-brand-dark rounded-full flex items-center justify-center text-2xl shadow-lg shadow-brand-gold/20 hover:scale-110 hover:bg-brand-goldlight transition duration-300 z-50">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Script de Animação de Scroll (Intersection Observer) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+
+            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // observer.unobserve(entry.target); // Descomente para animar só uma vez
+                    }
+                });
+            }, {
+                threshold: 0.15, // Porcentagem do elemento visível antes de ativar
+                rootMargin: "0px 0px -50px 0px" // Dispara um pouco antes de aparecer totalmente
+            });
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+        });
+    </script>
+</body>
+</html>
